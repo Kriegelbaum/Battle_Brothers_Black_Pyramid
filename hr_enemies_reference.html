@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardened Rogues — Enemy Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:      #1a1410;
+    --parchment:#f5edd8;
+    --parch2:   #ede0c4;
+    --parch3:   #e8d5b0;
+    --gold:     #b8892a;
+    --gold2:    #d4a843;
+    --rust:     #8b3a1e;
+    --steel:    #4a5568;
+    --shadow:   rgba(0,0,0,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #2a1f14;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, #3d2a18 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, #1a1008 0%, transparent 60%);
+    min-height: 100vh;
+    padding: 40px 24px;
+    font-family: 'EB Garamond', Georgia, serif;
+    color: var(--ink);
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--parchment);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    border: 1px solid #c4a96a;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 0 80px rgba(184,137,42,0.06);
+    padding: 48px 52px 56px;
+    position: relative;
+  }
+  .page::before { content:''; position:absolute; inset:12px; border:1px solid var(--gold); opacity:0.4; pointer-events:none; }
+  .page::after  { content:''; position:absolute; inset:15px; border:1px solid var(--gold); opacity:0.12; pointer-events:none; }
+
+  /* HEADER */
+  .header { text-align:center; margin-bottom:36px; padding-bottom:24px; border-bottom:1px solid var(--gold); }
+  .header-ornament { font-size:11px; letter-spacing:0.25em; color:var(--gold); text-transform:uppercase; font-family:'Cinzel',serif; margin-bottom:8px; }
+  h1 { font-family:'Cinzel',serif; font-size:28px; font-weight:700; color:var(--rust); margin-bottom:4px; }
+  .subtitle { font-size:15px; color:var(--steel); font-style:italic; }
+  .header-line { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:16px; font-size:11px; color:#7a6a50; letter-spacing:0.12em; text-transform:uppercase; font-family:'Cinzel',serif; }
+  .header-line::before,.header-line::after { content:''; flex:1; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); max-width:120px; opacity:0.5; }
+
+  /* FACTION BLOCK */
+  .faction { margin-bottom:44px; }
+  .faction-title {
+    font-family:'Cinzel',serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    padding:8px 16px;
+    margin-bottom:18px;
+    border-left:3px solid var(--gold);
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .ft-bandit { color:#4a2a0a; background:rgba(184,137,42,0.08); border-color:#8b5e2a; }
+  .ft-nomad  { color:#5a3a0a; background:rgba(212,148,74,0.08); border-color:#c47a1a; }
+  .ft-barb   { color:#1a3a14; background:rgba(74,138,74,0.08);  border-color:#3a7a2a; }
+  .ft-badge  { font-size:10px; padding:1px 8px; border-radius:2px; font-weight:400; letter-spacing:0.06em; margin-left:auto; }
+  .ftb-bandit { background:#8b5e2a; color:#f5edd8; }
+  .ftb-nomad  { background:#c47a1a; color:#f5edd8; }
+  .ftb-barb   { background:#3a7a2a; color:#f5edd8; }
+
+  /* ENEMY CARDS GRID */
+  .enemy-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:14px; }
+
+  .enemy-card {
+    background:var(--parch2);
+    border:0.5px solid #c9b384;
+    border-radius:2px;
+    overflow:hidden;
+    box-shadow:0 1px 5px var(--shadow);
+    display:flex;
+    flex-direction:column;
+  }
+  .enemy-card.is-boss { border-color:#8b5e2a; box-shadow:0 2px 8px rgba(139,94,42,0.25); }
+
+  .card-header {
+    padding:11px 14px 9px;
+    border-bottom:0.5px solid #c9b384;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .card-name { font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:var(--ink); line-height:1.2; }
+  .card-flavor { font-size:11.5px; color:#5a4a30; font-style:italic; line-height:1.35; margin-top:3px; }
+  .day-tag { font-size:9px; padding:2px 6px; border-radius:2px; white-space:nowrap; flex-shrink:0; font-family:'Cinzel',serif; letter-spacing:0.04em; margin-top:2px; }
+  .dt-early { background:#dff0e8; color:#0a4a2a; }
+  .dt-mid   { background:#ddeaf8; color:#0a2a5a; }
+  .dt-late  { background:#f8e8da; color:#5a1a0a; }
+  .dt-boss  { background:#f0e8d0; color:#3a2a0a; }
+
+  /* STAT BARS */
+  .stats { padding:10px 14px 8px; display:grid; grid-template-columns:1fr 1fr; gap:3px 12px; }
+  .srow { display:flex; align-items:center; gap:5px; }
+  .slbl { font-size:9px; color:#7a6a50; width:22px; flex-shrink:0; font-family:'Cinzel',serif; }
+  .sbar { flex:1; height:4px; background:rgba(0,0,0,0.1); border-radius:2px; overflow:hidden; }
+  .sfill { height:100%; border-radius:2px; }
+  .sval  { font-size:9px; color:var(--steel); width:24px; text-align:right; flex-shrink:0; }
+
+  /* PERKS */
+  .perks { padding:8px 14px 12px; border-top:0.5px solid #d5c090; }
+  .perks-label { font-size:9px; font-family:'Cinzel',serif; color:#9a8a6a; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
+  .perk-row { font-size:11.5px; color:#3a2a14; line-height:1.65; display:flex; align-items:baseline; gap:5px; }
+  .perk-row::before { content:'◆'; color:#8a7a5a; font-size:9px; flex-shrink:0; }
+  .perk-row.aug-perk { color:#1a3a5e; }
+  .perk-row.hr-perk  { color:#5a1a0a; font-weight:500; }
+  .perk-row.aug-perk::before { content:'★'; color:#1a6aae; font-size:10px; }
+  .perk-row.hr-perk::before  { content:'◆'; color:var(--rust); font-size:9px; }
+
+  /* WEAPONS */
+  .weapons { padding:0 14px 12px; }
+  .weap-label { font-size:9px; font-family:'Cinzel',serif; color:#9a8a6a; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+  .weap-text  { font-size:11.5px; color:#4a3a1a; line-height:1.5; font-style:italic; }
+
+  /* HardMax badge */
+  .hardmax { display:inline-block; font-size:9px; padding:1px 6px; background:#3a2a14; color:#d4a843; border-radius:2px; font-family:'Cinzel',serif; margin-left:6px; vertical-align:middle; }
+
+  /* FOOTER */
+  .footer { margin-top:40px; padding-top:16px; border-top:0.5px solid rgba(184,137,42,0.4); text-align:center; font-size:11px; color:#9a8a6a; font-style:italic; font-family:'Cinzel',serif; letter-spacing:0.1em; }
+
+  .divider { height:0.5px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:36px 0; opacity:0.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-ornament">Hardened Rogues · v1.3.0</div>
+    <h1>Enemy Reference</h1>
+    <p class="subtitle">All 15 archetypes — stats, perks, spawn thresholds</p>
+    <div class="header-line">★ = BP Augmenteds perk &nbsp;·&nbsp; ◆ = base game perk</div>
+  </div>
+
+  <!-- ═══════════════════════════════════ BANDITS ═══════════════════════════════════ -->
+  <div class="faction">
+    <div class="faction-title ft-bandit">
+      ⚔ Brigands
+      <span class="ft-badge ftb-bandit">BanditRaiders · BanditDefenders · BanditBoss</span>
+    </div>
+    <div class="enemy-grid" id="bandits"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════ NOMADS ═══════════════════════════════════ -->
+  <div class="faction">
+    <div class="faction-title ft-nomad">
+      ⚔ Nomads
+      <span class="ft-badge ftb-nomad">NomadRoamers · NomadRaiders · NomadDefenders</span>
+    </div>
+    <div class="enemy-grid" id="nomads"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════ BARBARIANS ═══════════════════════════════════ -->
+  <div class="faction">
+    <div class="faction-title ft-barb">
+      ⚔ Barbarians
+      <span class="ft-badge ftb-barb">Barbarians · BarbarianHunters</span>
+    </div>
+    <div class="enemy-grid" id="barbs"></div>
+  </div>
+
+  <div class="footer">Hardened Rogues · Enemy Reference Sheet · v1.3.0 · Requires Reforged + Hardened + BP Augmenteds · Spawn day approximate at party base 200 (Hardened world scaling)</div>
+</div>
+
+<script>
+const MAX = { hp:140, ms:100, md:38, init:175, st:155, br:130 };
+const COLORS = {
+  bandit: '#8b5e2a', nomad: '#8b5e2a', barb: '#8b5e2a'
+};
+
+function statBar(key, val, col) {
+  const pct = Math.round(val / MAX[key] * 100);
+  const labels = { hp:'HP', ms:'MS', md:'MD', init:'IN', st:'ST', br:'BR' };
+  return `<div class="srow">
+    <span class="slbl">${labels[key]}</span>
+    <div class="sbar"><div class="sfill" style="width:${pct}%;background:${col}"></div></div>
+    <span class="sval">${val}</span>
+  </div>`;
+}
+
+function card(u, faction) {
+  const col = COLORS[faction];
+  const dtClass = u.dayClass || 'dt-mid';
+  const bossClass = u.isboss ? ' is-boss' : '';
+  const hm = u.hardmax ? `<span class="hardmax">max ${u.hardmax}</span>` : '';
+
+  const perksHtml = u.perks.map(p => {
+    const cls = p.type === 'aug' ? ' aug-perk' : '';
+    const badge = p.type === 'aug' ? ' <span style="font-size:9px;padding:1px 5px;border-radius:2px;background:#deeaf5;color:#1a4a6e;font-family:\'Cinzel\',serif;letter-spacing:0.04em;vertical-align:middle;font-style:normal;">BP Aug</span>' : '';
+    return `<div class="perk-row${cls}">${p.name}${badge}</div>`;
+  }).join('');
+
+  return `<div class="enemy-card${bossClass}">
+    <div class="card-header">
+      <div>
+        <div class="card-name">${u.name}${hm}</div>
+        <div class="card-flavor">${u.flavor}</div>
+      </div>
+      <span class="day-tag ${dtClass}">${u.day}</span>
+    </div>
+    <div class="stats">
+      ${statBar('hp',u.hp,col)}${statBar('ms',u.ms,col)}
+      ${statBar('md',u.md,col)}${statBar('init',u.init,col)}
+      ${statBar('st',u.st,col)}${statBar('br',u.br,col)}
+    </div>
+    <div class="perks">
+      <div class="perks-label">Perks</div>
+      ${perksHtml}
+    </div>
+    <div class="weapons">
+      <div class="weap-label">Equipment</div>
+      <div class="weap-text">${u.equip}</div>
+    </div>
+  </div>`;
+}
+
+const bandits = [
+  { name:'Brigand Veteran', flavor:'Disciplined ex-mercenary. Fights with weight.', day:'~day 192', dayClass:'dt-mid', hardmax:3,
+    hp:115,ms:90,md:20,init:105,st:135,br:90,
+    perks:[{type:'base',name:'Brawny · Killing Frenzy · Bully'},{type:'aug',name:'Ahead of the Curve'}],
+    equip:'2H weapon or heavy 1H + shield · medium armour' },
+  { name:'Brigand Deserter', flavor:'Soldier-turned-outlaw. Near-unkillable.', day:'~day 231', dayClass:'dt-late', hardmax:2,
+    hp:130,ms:85,md:30,init:90,st:125,br:100,
+    perks:[{type:'base',name:'Battle Forged · Nine Lives · Rotation'},{type:'aug',name:'Doctrine of Endurance'}],
+    equip:'1H weapon + shield · heavy armour' },
+  { name:'Brigand Crossbowman', flavor:"Patient marksman. Don't let him reload.", day:'~day 192', dayClass:'dt-mid', hardmax:2,
+    hp:75,ms:55,md:10,init:95,st:115,br:70,
+    perks:[{type:'base',name:'Bullseye · Crossbow Mastery · Anticipation'},{type:'aug',name:'Ahead of the Curve'}],
+    equip:'Crossbow (back row) · light armour' },
+  { name:'Brigand Stalker', flavor:'High-init knife killer. Acts first.', day:'~day 192', dayClass:'dt-mid', hardmax:2,
+    hp:80,ms:95,md:30,init:165,st:145,br:70,
+    perks:[{type:'base',name:'Nimble · Backstabber · Dagger Mastery'},{type:'aug',name:'Shadow Reaper · Poke and Kite'}],
+    equip:'Dagger / scramasax · light armour' },
+  { name:'Brigand Captain', flavor:'Commander. His death breaks morale.', day:'~day 269', dayClass:'dt-boss', hardmax:1, isboss:true,
+    hp:110,ms:85,md:25,init:110,st:130,br:120,
+    perks:[{type:'base',name:'Rally the Troops · Fortified Mind · Rotation'},{type:'aug',name:'Doctrine of Endurance'}],
+    equip:'1H weapon + shield · leader armour' },
+  { name:'Brigand Duelist', flavor:'Pit-fighter. Free offhand strikes.', day:'~day 154', dayClass:'dt-early', hardmax:2,
+    hp:95,ms:88,md:22,init:115,st:115,br:85,
+    perks:[{type:'base',name:'Footwork · Killing Frenzy · Quick Hands'},{type:'aug',name:'Two-Weapon Fighter'}],
+    equip:'Arming sword / falchion (main) · dagger / scramasax (offhand)' },
+  { name:'Brigand Blade Dancer', flavor:'Fastest dual-weapon unit. Acts before most.', day:'~day 154', dayClass:'dt-early', hardmax:2,
+    hp:85,ms:90,md:28,init:140,st:130,br:75,
+    perks:[{type:'base',name:'Nimble · Footwork · Killing Frenzy'},{type:'aug',name:'Two-Weapon Fighter'}],
+    equip:'Scimitar / falchion (main) · dagger / qatal (offhand) · light armour' },
+  { name:'Brigand Blademaster', flavor:'Both twin-weapon perks. Mini-boss.', day:'~day 212', dayClass:'dt-boss', hardmax:1, isboss:true,
+    hp:105,ms:92,md:30,init:108,st:110,br:95,
+    perks:[{type:'base',name:'Brawny · Footwork · Fortified Mind'},{type:'aug',name:'Two-Weapon Fighter + Florentine Stance'}],
+    equip:'Heavy 1H (main) · arming sword / axe (offhand) · leader armour' },
+  { name:'Brigand Skirmisher', flavor:'Throws first. Closes to melee.', day:'~day 146', dayClass:'dt-early', hardmax:2,
+    hp:85,ms:75,md:18,init:120,st:125,br:72,
+    perks:[{type:'base',name:'Throwing Mastery · Footwork · Quick Hands'},{type:'aug',name:'Poke and Kite'}],
+    equip:'Javelin / throwing spear (main) · 1H melee (bag) · medium armour' },
+  { name:'Brigand Ironbreaker', flavor:'Woe of Iron punishes heavy armour directly.', day:'~day 173', dayClass:'dt-mid', hardmax:2,
+    hp:110,ms:85,md:12,init:105,st:140,br:75,
+    perks:[{type:'base',name:'Berserk · Colossus · Killing Frenzy · Brawny'},{type:'aug',name:'Woe of Iron (7% armour → HP, cap +20)'},{type:'aug',name:'Two-Weapon Fighter (60% chance dual 1H)'}],
+    equip:'Heavy 1H × 2 (60%) or 2H axe/hammer (40%) · heavy armour' },
+];
+
+const nomads = [
+  { name:'Desert Hawk', flavor:'Fires a bow in melee. Unique in the game.', day:'~day 154', dayClass:'dt-early', hardmax:2,
+    hp:80,ms:72,md:25,init:138,st:125,br:75,
+    perks:[{type:'base',name:'Dodge · Pathfinder · Rotation'},{type:'aug',name:'Close Combat Archer'},{type:'aug',name:'Quick (+10% Initiative → ~152)'}],
+    equip:'Nomadic bow (main) · scimitar / qatal (bag) · light nomad armour' },
+  { name:'Nomad Dervish', flavor:'Twin scimitars. Initiative ~170 with Quick.', day:'~day 154', dayClass:'dt-early', hardmax:2,
+    hp:85,ms:88,md:30,init:155,st:130,br:80,
+    perks:[{type:'base',name:'Dodge · Rotation · Killing Frenzy'},{type:'aug',name:'Two-Weapon Fighter'},{type:'aug',name:'Quick (+10% Initiative → ~170)'}],
+    equip:'Scimitar × 2 (main + offhand) / qatal dagger · nomad armour' },
+  { name:'Nomad Sand Stalker', flavor:'Night ambusher. Initiative ~178 in darkness.', day:'~day 173', dayClass:'dt-mid', hardmax:2,
+    hp:78,ms:90,md:32,init:162,st:138,br:68,
+    perks:[{type:'base',name:'Nimble · Dodge · Backstabber'},{type:'aug',name:'Shadow Reaper (+10% all at night → Init ~178)'},{type:'aug',name:'Poke and Kite (~+13 flat dmg at night)'}],
+    equip:'Qatal dagger / scimitar · optional javelin (40%) · minimal armour' },
+];
+
+const barbs = [
+  { name:'Northern Ironbreaker', flavor:'Woe of Iron — the heavier your armour, the harder he hits.', day:'~day 192', dayClass:'dt-mid', hardmax:2,
+    hp:120,ms:82,md:15,init:98,st:148,br:90,
+    perks:[{type:'base',name:'Colossus · Pathfinder · Vigorous Assault · Survival Instinct'},{type:'aug',name:'Woe of Iron (7% armour → direct HP, cap +20)'}],
+    equip:'Heavy rusty axe / rusty warblade / antler cleaver · heavy iron armour' },
+  { name:'Barbarian Axe Hurler', flavor:'Volley of heavy axes, then Berserk charge.', day:'~day 173', dayClass:'dt-mid', hardmax:2,
+    hp:95,ms:80,md:14,init:128,st:142,br:72,
+    perks:[{type:'base',name:'Throwing Mastery · Berserk · Pathfinder · Quick Hands'},{type:'aug',name:'Poke and Kite (+10 flat dmg per throw)'}],
+    equip:'Heavy throwing axe × 1–2 · antler cleaver / greatsword (bag) · medium hide armour' },
+];
+
+document.getElementById('bandits').innerHTML = bandits.map(u => card(u,'bandit')).join('');
+document.getElementById('nomads').innerHTML  = nomads.map(u => card(u,'nomad')).join('');
+document.getElementById('barbs').innerHTML   = barbs.map(u => card(u,'barb')).join('');
+</script>
+</body>
+</html>
