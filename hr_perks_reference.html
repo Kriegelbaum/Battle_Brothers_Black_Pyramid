@@ -145,7 +145,7 @@
   /* ── PERK CARD ── */
   .perk-card {
     display: grid;
-    grid-template-columns: 52px 1fr;
+    grid-template-columns: 80px 1fr;
     gap: 0;
     margin-bottom: 14px;
     border: 0.5px solid #c9b384;
@@ -159,20 +159,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 8px;
+    padding: 0;
     flex-shrink: 0;
+    width: 80px;
+    min-width: 80px;
   }
   .perk-icon {
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    border: 1.5px solid var(--gold);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    background: #2a1f14;
-    box-shadow: 0 0 8px rgba(184,137,42,0.3);
+    font-size: 26px;
+    background: transparent;
+    box-shadow: none;
+    overflow: hidden;
   }
   .perk-body { padding: 12px 16px; }
   .perk-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; flex-wrap: wrap; }
@@ -402,6 +405,45 @@
     </div>
   </div>
 
+  
+  <!-- COMBAT MASTERY -->
+  <div class="section">
+    <div class="section-title">Combat Mastery</div>
+
+    <div class="perk-card">
+      <div class="perk-icon-col"><div class="perk-icon"></div></div>
+      <div class="perk-body">
+        <div class="perk-top">
+          <span class="perk-name">Ahead of the Curve</span>
+          <span class="perk-source src-aug">BP Augmenteds</span>
+        </div>
+        <p class="perk-desc">Gain <span class="perk-number">10%</span> of current Initiative as bonus to both <span class="perk-number">Melee Skill</span> and <span class="perk-number">Ranged Skill</span>, capped at <span class="perk-number">+20</span> each. The bonus scales with combat Initiative — it drops as fatigue accumulates. Veteran Init 105 → <span class="perk-number">+10 MS/RS</span>. Crossbowman uses this to improve ranged accuracy late in battle.</p>
+        <div class="carriers-label">Carried by</div>
+        <div class="carriers">
+          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Veteran</div>
+          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Crossbowman</div>
+          <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Nomad Desert Hawk</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="perk-card">
+      <div class="perk-icon-col"><div class="perk-icon"></div></div>
+      <div class="perk-body">
+        <div class="perk-top">
+          <span class="perk-name">Doctrine of Endurance</span>
+          <span class="perk-source src-aug">BP Augmenteds</span>
+        </div>
+        <p class="perk-desc">Gain <span class="perk-number">12%</span> of current Resolve as <span class="perk-number">damage reduction</span> to both HP and Armour received, capped at <span class="perk-number">90%</span> total reduction. Also grants <span class="perk-number">immunity to Stun</span>. Deserter Resolve 100 → <span class="perk-number">−12%</span> all incoming damage. Captain Resolve 120 → <span class="perk-number">−14%</span>. Makes both nearly impossible to burst down.</p>
+        <div class="carriers-label">Carried by</div>
+        <div class="carriers">
+          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Deserter</div>
+          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Captain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="footer">Hardened Rogues · Perk Reference Sheet · v1.3.0 · All perks are part of BP_Augmenteds_rf · Requires Reforged + Hardened + BP Augmenteds</div>
 </div>
 
@@ -410,14 +452,15 @@ const ICONS = {"quick": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4C
 
 // Replace each perk-icon div with the real icon image
 const iconMap = {
-  'Two-Weapon Fighter': ICONS.two_weapon,
-  'Florentine Stance':  ICONS.florentine,
-  'Quick':              ICONS.quick,
-  'Poke and Kite':      ICONS.poke_and_kite,
-  'Shadow Reaper':      ICONS.shadow_reaper,
-  'Close Combat Archer':ICONS.close_combat_archer,
-  'Woe of Iron':        ICONS.woe_of_iron,
-  'Ahead of the Curve': ICONS.ahead_of_curve,
+  'Two-Weapon Fighter':    ICONS.two_weapon,
+  'Florentine Stance':     ICONS.florentine,
+  'Quick':                 ICONS.quick,
+  'Poke and Kite':         ICONS.poke_and_kite,
+  'Shadow Reaper':         ICONS.shadow_reaper,
+  'Close Combat Archer':   ICONS.close_combat_archer,
+  'Woe of Iron':           ICONS.woe_of_iron,
+  'Ahead of the Curve':    ICONS.ahead_of_curve,
+  'Doctrine of Endurance': ICONS.doctrine,
 };
 document.querySelectorAll('.perk-card').forEach(card => {
   const nameEl = card.querySelector('.perk-name');
@@ -429,11 +472,13 @@ document.querySelectorAll('.perk-card').forEach(card => {
   if (iconDiv) {
     iconDiv.innerHTML = '';
     iconDiv.style.border = 'none';
-    iconDiv.style.background = 'none';
+    iconDiv.style.borderRadius = '50%';
+    iconDiv.style.background = 'transparent';
     iconDiv.style.boxShadow = 'none';
+    iconDiv.style.overflow = 'hidden';
     const img = document.createElement('img');
     img.src = src;
-    img.style.cssText = 'width:38px;height:38px;object-fit:contain;image-rendering:pixelated;';
+    img.style.cssText = 'width:52px;height:52px;object-fit:contain;display:block;border-radius:50%;';
     iconDiv.appendChild(img);
   }
 });
