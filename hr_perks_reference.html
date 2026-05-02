@@ -234,6 +234,17 @@
   .cd-nomad  { background: #c47a1a; }
   .cd-barb   { background: #3a7a2a; }
 
+/* Стили для ссылок в шапке */
+  .header-line a {
+    color: var(--rust);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .header-line a:hover {
+    border-bottom-color: var(--rust);
+  }
+
   /* ── FOOTER ── */
   .footer {
     margin-top: 40px;
@@ -251,12 +262,19 @@
 <body>
 <div class="page">
 
-  <div class="header">
-    <div class="header-ornament">Black Pyramid Augmenteds</div>
-    <h1>Perk Reference</h1>
-    <p class="subtitle">All new perks</p>
-    <div class="header-line">Requires Reforged + Hardened + BP Augmenteds</div>
+<div class="header">
+  <div class="header-ornament">Black Pyramid Augmenteds</div>
+  <h1>Perk Reference</h1>
+  <p class="subtitle">All new perks</p>
+  <div class="header-line">
+    <span style="display: inline-block; white-space: nowrap;">
+      Requires 
+      <a href="https://www.nexusmods.com/battlebrothers/mods/765" target="_blank">Reforged</a> + 
+      <a href="https://www.nexusmods.com/battlebrothers/mods/794" target="_blank">Hardened</a> + 
+      <a href="https://www.nexusmods.com/battlebrothers/mods/986" target="_blank">BP Augmenteds</a>
+    </span>
   </div>
+</div>
 
   <div class="legend">
     <div class="leg-item"><div class="leg-dot" style="background:#1a4a6e"></div> <span><b>BP Augmenteds perk</b> — part of the BP_Augmenteds_rf mod.</span></div>
@@ -550,7 +568,13 @@
     </div>
   </div>
 
-  <div class="footer">Hardened Rogues · Perk Reference Sheet · v1.4.0 · All perks are part of BP_Augmenteds_rf · Requires Reforged + Hardened + BP Augmenteds</div>
+<div class="footer">
+    Hardened Rogues · Perk Reference Sheet · v1.4.0 · All perks are part of BP_Augmenteds_rf · Requires 
+    <a href="https://www.nexusmods.com/battlebrothers/mods/765" target="_blank">Reforged</a> + 
+    <a href="https://www.nexusmods.com/battlebrothers/mods/794" target="_blank">Hardened</a> + 
+    <a href="https://www.nexusmods.com/battlebrothers/mods/986" target="_blank">BP Augmenteds</a>
+  </div>
+  
 </div>
 
 <script>
