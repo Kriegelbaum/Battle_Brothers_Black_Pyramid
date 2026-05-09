@@ -1,4 +1,3 @@
-TWO-WEAPON: OK
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -294,8 +293,7 @@ TWO-WEAPON: OK
         </div>
         <p class="perk-desc">Years of training have taught you to fight equally well with both hands.</p>
         <p class="perk-desc" style="margin-top:6px">Right-click any one-handed melee weapon in the bag or stash while your mainhand is occupied and the offhand is free, and it will be placed in the offhand slot. Its skills become available alongside your mainhand weapon.</p>
-        <p class="perk-desc" style="margin-top:6px">After every basic attack you have a <span class="perk-number">15%</span> chance to immediately follow up with the basic attack of your offhand weapon. The follow-up costs Fatigue but no Action Points.</p>
-        <p class="perk-desc" style="margin-top:6px">If both your hands are empty you fight as a brawler: every basic attack is followed up by a second one with <span class="perk-number">100%</span> chance.</p>
+        <p class="perk-desc" style="margin-top:6px">While wielding two melee weapons, every melee attack deals <span class="perk-number">+20%</span> damage (applies to both hands).<br><br>After every basic attack you have a <span class="perk-number">20%</span> chance to follow up with the basic attack of your offhand weapon (Fatigue cost applies, no AP cost). <span class="perk-number">Double Grip</span> does not apply while dual-wielding — the +20% damage replaces it.</p>
         <p class="perk-desc" style="margin-top:6px"><span class="perk-number">Restrictions:</span><br>
         &nbsp;— The offhand slot must be empty (no shield, throwing net, banner or grenade).<br>
         &nbsp;— Two-handed weapons (greatswords, polearms, etc.) and ranged weapons (bows, crossbows, throwing axes) are not eligible for the offhand.<br>
@@ -307,6 +305,8 @@ TWO-WEAPON: OK
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Blademaster</div>
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Ironbreaker (60% dual)</div>
           <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Nomad Dervish</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Barbarian (12%)</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Wildman (12%)</div>
         </div>
       </div>
     </div>
@@ -320,8 +320,7 @@ TWO-WEAPON: OK
         </div>
         <p class="perk-desc">Mastery of the two-blade style. While fighting with two weapons, you parry incoming blows with both edges.</p>
         <p class="perk-desc" style="margin-top:6px">While in Two-Weapon Stance, gain <span class="perk-number">12%</span> of current Resolve as additional Melee Defense (capped at <span class="perk-number">+15</span>). Does not grant Ranged Defense.</p>
-        <p class="perk-desc" style="margin-top:6px"><span class="perk-number">+5%</span> to the offhand follow-up chance (<span class="perk-number">15% → 20%</span>).</p>
-        <p class="perk-desc" style="margin-top:6px">When fighting with both hands empty, your follow-up brawler strike has a <span class="perk-number">50%</span> chance to leave the target dazed.</p>
+        <p class="perk-desc" style="margin-top:6px"><span class="perk-number">+5%</span> to the offhand follow-up chance (<span class="perk-number">20% → 25%</span>).</p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Blademaster only</div>
@@ -434,8 +433,8 @@ TWO-WEAPON: OK
         </table>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Northern Ironbreaker</div>
-          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Ironbreaker</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Barbarian (20%) · Wildman (20%)</div>
+          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Hedge Knight (25%)</div>
         </div>
       </div>
     </div>
@@ -499,7 +498,9 @@ TWO-WEAPON: OK
       Monk <span class="perk-number">75%</span>,
       Brawler <span class="perk-number">35%</span>,
       Gladiator (any) <span class="perk-number">25%</span>,
-      Flagellant <span class="perk-number">20%</span>.
+      Vagabond <span class="perk-number">20%</span>,
+      Flagellant <span class="perk-number">15%</span>,
+      Barbarian/Wildman <span class="perk-number">8%</span>.
     </p>
 
     <div class="perk-card">
@@ -512,10 +513,15 @@ TWO-WEAPON: OK
         <p class="perk-desc">&ldquo;My flesh is a temple, and my fists are its pillars.&rdquo;</p>
         <p class="perk-desc" style="margin-top:6px">Years spent copying dusty manuscripts have hardened your knuckles, and endless hours of silent meditation have taught you to channel the strength of the spirit down into your fingertips. Why should a monk wield steel that rusts, or wood that rots? You have come to understand that the human body is the only weapon a man truly needs — a perfect instrument, given from above.</p>
         <p class="perk-desc" style="margin-top:6px">Now, when you set the full weight of your vows behind a punch into the jaw of some swaggering sellsword, or drive a fist into the ribs of an orc brute, the sound that follows is sweeter to your ears than any chapel bell.</p>
-        <p class="perk-desc" style="margin-top:6px">While in the Monk Stance — body armor of <span class="perk-number">20</span> or less, helmet of <span class="perk-number">30</span> or less, and <span class="perk-number">both hands empty</span> — gain <span class="perk-number">25%</span> of current Resolve as Melee Defense and <span class="perk-number">15%</span> of current Initiative as Ranged Defense.</p>
+        <p class="perk-desc" style="margin-top:6px">While in the Monk Stance — body armor of <span class="perk-number">20</span> or less, helmet of <span class="perk-number">30</span> or less, and <span class="perk-number">both hands empty</span>:<br>
+        &nbsp;— Gain <span class="perk-number">20%</span> of current Resolve as Melee Defense.<br>
+        &nbsp;— Gain <span class="perk-number">10%</span> of current Initiative as Ranged Defense.<br>
+        &nbsp;— Every basic unarmed attack has a <span class="perk-number">50%</span> chance to follow up with another unarmed strike (<span class="perk-number">75%</span> with Energy of Qi). The follow-up costs Fatigue (no AP) and has a <span class="perk-number">−5%</span> hit chance penalty. Each follow-up has a <span class="perk-number">15%</span> chance to leave the target dazed.<br><br>
+        Additionally, you suffer no <span class="perk-number">Naked penalty</span> when fighting unarmored — for a trained monk, bare flesh is a discipline.</p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-player"><div class="c-dot cd-player"></div>Player only — Monk 75%, Brawler 35%, Gladiator 25%, Flagellant 20%</div>
+          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Monk 75% · Brawler 35% · Gladiator 25%</div>
+          <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Vagabond 20% · Flagellant 15% · Barbarian/Wildman 8%</div>
         </div>
       </div>
     </div>
@@ -532,6 +538,7 @@ TWO-WEAPON: OK
         <p class="perk-desc" style="margin-top:6px">While in the Monk Stance:<br>
         &nbsp;— <span class="perk-number">Rotation</span> and <span class="perk-number">Footwork</span> cost <span class="perk-number">0 Fatigue</span> and <span class="perk-number">2 AP</span>.<br>
         &nbsp;— Gain <span class="perk-number">5%</span> of current Initiative as both Melee Defense and Ranged Defense.</p>
+        <p class="perk-desc" style="margin-top:6px"><em>Requires Monastery Training.</em></p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
           <div class="carrier c-player"><div class="c-dot cd-player"></div>Player only — same backgrounds as Monastery Training</div>
@@ -551,6 +558,7 @@ TWO-WEAPON: OK
         <p class="perk-desc" style="margin-top:6px">The world around is vanity, the cries of the dying, the stench of unwashed bodies. But within you — only the silence of an abandoned cell, and the echo of the morning prayer. While your comrades panic at the sight of a bloodied field, you only sigh meekly, remembering that all things in this world pass away.</p>
         <p class="perk-desc" style="margin-top:6px">Neither the dreadful shrieks of the undead, nor the ghosts that haunt old graveyards, nor the bellowing of orcs — nothing can stir the calm within you. You watch an axe hurled at your head with the same quiet indifference you once gave a buzzing fly during an all-night vigil.</p>
         <p class="perk-desc" style="margin-top:6px">While in the Monk Stance, incoming damage is reduced by <span class="perk-number">0.5%</span> for every point of current Resolve, up to a <span class="perk-number">95%</span> cap (reached at 190 Resolve).</p>
+        <p class="perk-desc" style="margin-top:6px"><em>Requires Monastery Training.</em></p>
         <table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0 10px;color:#4a3e2a">
           <tr style="border-bottom:0.5px solid #c9b384">
             <th style="text-align:left;padding:3px 8px 3px 0;font-family:'Cinzel',serif;font-weight:600;font-size:11px;color:#7a6a50">Resolve</th>
@@ -590,7 +598,11 @@ TWO-WEAPON: OK
           <tr><td style="padding:3px 8px 3px 0">Exhausted</td><td style="padding:3px 8px">+10</td><td style="padding:3px 0">Resolve 100, CurFat ≥ MaxFat</td></tr>
           <tr><td style="padding:3px 8px 3px 0">Late-game peak</td><td style="padding:3px 8px"><b style="color:var(--rust)">+26 → +30 (cap)</b></td><td style="padding:3px 0">Resolve 130, MaxFat 130, fresh</td></tr>
         </table>
-        <p class="perk-desc" style="margin-top:6px">Also grants the active skill <span class="perk-number">Laying on Hands</span> (once per turn), which heals an ally and removes poisons, bleeds and charm effects.</p>
+        <p class="perk-desc" style="margin-top:6px">Also raises the unarmed follow-up chance from <span class="perk-number">50%</span> to <span class="perk-number">75%</span>.</p>
+        <p class="perk-desc" style="margin-top:6px">After a basic unarmed strike, there is a <span class="perk-number">10%</span> chance to instantly chain a third strike against a <span class="perk-number">random adjacent enemy</span> (other than the original target). The chain strike costs Fatigue but no AP and has a <span class="perk-number">−10%</span> hit chance penalty.</p>
+        <p class="perk-desc" style="margin-top:6px">Also grants the active skill <span class="perk-number">Laying on Hands</span> (once per turn, 6 AP / 40 Fatigue, adjacent allies only), which heals an ally for <span class="perk-number">20%</span> of the monk's current Resolve and removes poisons, bleeds and charm effects.</p>
+        <p class="perk-desc" style="margin-top:6px"><strong>Side effect:</strong> Each unarmed strike costs <span class="perk-number">+5</span> additional Fatigue while in Monk Stance (applies to follow-up punches too).</p>
+        <p class="perk-desc" style="margin-top:6px"><em>Requires Monastery Training.</em></p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
           <div class="carrier c-player"><div class="c-dot cd-player"></div>Player only — same backgrounds as Monastery Training</div>
@@ -600,7 +612,7 @@ TWO-WEAPON: OK
   </div>
 
 <div class="footer">
-    Hardened Rogues · Perk Reference Sheet · v1.5.5 · All perks are part of BP_Augmenteds_rf · Requires 
+    Hardened Rogues · Perk Reference Sheet · v1.5.22 · All perks are part of BP_Augmenteds_rf · Requires 
     <a href="https://www.nexusmods.com/battlebrothers/mods/765" target="_blank">Reforged</a> + 
     <a href="https://www.nexusmods.com/battlebrothers/mods/794" target="_blank">Hardened</a> + 
     <a href="https://www.nexusmods.com/battlebrothers/mods/986" target="_blank">BP Augmenteds</a>
