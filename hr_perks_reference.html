@@ -226,13 +226,25 @@
     align-items: center;
     gap: 5px;
   }
-  .c-bandit  { background: #f0ebe0; color: #3a2a14; border-color: #c4a96a; }
+  /* Unified PLAYER palette (used wherever a % spawn chance is shown):
+     same tan/beige as the former c-bandit example (Brigand Skirmisher). */
+  .c-player  { background: #f0ebe0; color: #3a2a14; border-color: #c4a96a; }
+  .c-barb    { background: #f0ebe0; color: #3a2a14; border-color: #c4a96a; }
+  .cd-player { background: #8b5e2a; }
+  .cd-barb   { background: #8b5e2a; }
+
+  /* Unified ENEMY palette (Hardened Rogues archetypes — brigands, nomads,
+     barbarians and cult-of-the-hollow-hand monks): same sandy orange as the
+     former c-nomad example (Nomad Desert Hawk). */
+  .c-bandit  { background: #f0e8d8; color: #5a3a0a; border-color: #d4944a; }
   .c-nomad   { background: #f0e8d8; color: #5a3a0a; border-color: #d4944a; }
-  .c-barb    { background: #e8f0e0; color: #1a3a14; border-color: #7aaa4a; }
-  .c-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .cd-bandit { background: #8b5e2a; }
+  .c-cult    { background: #f0e8d8; color: #5a3a0a; border-color: #d4944a; }
+  .cd-bandit { background: #c47a1a; }
   .cd-nomad  { background: #c47a1a; }
-  .cd-barb   { background: #3a7a2a; }
+  .cd-cult   { background: #c47a1a; }
+
+  .c-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
 
 /* Стили для ссылок в шапке */
   .header-line a {
@@ -289,14 +301,14 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Two-Weapon Fighter</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Two-Weapon Fighting</span>
         </div>
         <p class="perk-desc">Years of training have taught you to fight equally well with both hands.</p>
         <p class="perk-desc" style="margin-top:6px">Right-click any one-handed melee weapon in the bag or stash while your mainhand is occupied and the offhand is free, and it will be placed in the offhand slot. Its skills become available alongside your mainhand weapon.</p>
         <p class="perk-desc" style="margin-top:6px">While wielding two melee weapons, every melee attack deals <span class="perk-number">+20%</span> damage (applies to both hands).<br><br>After every basic attack you have a <span class="perk-number">20%</span> chance to follow up with the basic attack of your offhand weapon (Fatigue cost applies, no AP cost). <span class="perk-number">Double Grip</span> does not apply while dual-wielding — the +20% damage replaces it.</p>
         <p class="perk-desc" style="margin-top:6px"><span class="perk-number">Restrictions:</span><br>
         &nbsp;— The offhand slot must be empty (no shield, throwing net, banner or grenade).<br>
-        &nbsp;— Two-handed weapons (greatswords, polearms, etc.) and ranged weapons (bows, crossbows, throwing axes) are not eligible for the offhand.<br>
+        &nbsp;— Two-handed melee weapons go in the offhand <span class="perk-number">only</span> if the bro has the <span class="perk-number">Huge</span> trait. Ranged weapons (bows, crossbows, throwing axes) are never eligible for the offhand.<br>
         &nbsp;— The follow-up triggers only on basic weapon attacks (Swing, Thrust, Split, etc.), not on special attacks like Decapitate or Riposte.</p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
@@ -305,6 +317,14 @@
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Blademaster</div>
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Ironbreaker (60% dual)</div>
           <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Nomad Dervish</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Gladiator (70%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Hedge Knight (50%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Noble (30%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Sellsword (20%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Assassin (20%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Nomad (15%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Raider (15%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Brawler (15%)</div>
           <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Barbarian (12%)</div>
           <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Wildman (12%)</div>
         </div>
@@ -316,7 +336,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Florentine Stance</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Two-Weapon Fighting</span>
         </div>
         <p class="perk-desc">Mastery of the two-blade style. While fighting with two weapons, you parry incoming blows with both edges.</p>
         <p class="perk-desc" style="margin-top:6px">While in Two-Weapon Stance, gain <span class="perk-number">12%</span> of current Resolve as additional Melee Defense (capped at <span class="perk-number">+15</span>). Does not grant Ranged Defense.</p>
@@ -324,6 +344,16 @@
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Blademaster only</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Gladiator (70%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Hedge Knight (50%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Noble (30%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Sellsword (20%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Assassin (20%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Nomad (15%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Raider (15%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Brawler (15%)</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Barbarian (12%)</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Wildman (12%)</div>
         </div>
       </div>
     </div>
@@ -338,7 +368,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Quick</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Fast</span>
         </div>
         <p class="perk-desc">Natural quickness. Maximum Initiative is increased by <span class="perk-number">+10%</span> (applies before fatigue penalties).</p>
         <div class="carriers-label">Carried by</div>
@@ -354,7 +384,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Poke and Kite</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Agile</span>
         </div>
         <p class="perk-desc">Take advantage of your initiative to deal more damage.</p>
         <p class="perk-desc" style="margin-top:6px">Gain <span class="perk-number">8%</span> of current Initiative as additional minimum and maximum damage, capped at <span class="perk-number">+15</span>.</p>
@@ -378,7 +408,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Shadow Reaper</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Knave</span>
         </div>
         <p class="perk-desc">Sliding between the folds of darkness like a phantom.</p>
         <p class="perk-desc" style="margin-top:6px">When fighting at night gain <span class="perk-number">+10%</span> to Melee Skill, Ranged Skill, maximum Initiative and Resolve, and <span class="perk-number">+3</span> Fatigue Recovery per turn.</p>
@@ -394,13 +424,13 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Close Combat Archer</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Bow</span>
         </div>
         <p class="perk-desc">As a skilled archer, even in the midst of a melee, you can manage to dodge and use your bow to counterattack.</p>
         <p class="perk-desc" style="margin-top:6px"><span class="perk-number">Bows</span> can be used even when engaged in melee. Does not apply to crossbows.</p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Nomad Desert Hawk only</div>
+          <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Nomad Desert Hawk</div>
         </div>
       </div>
     </div>
@@ -415,7 +445,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Woe of Iron</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-hr">Berserker of the North</span>
         </div>
         <p class="perk-desc">Iron is not a shield — it is a target.</p>
         <p class="perk-desc" style="margin-top:6px">Every melee hit deals <span class="perk-number">bonus armor damage</span> equal to <span class="perk-number">8%</span> of the target's current armor condition (the heavier and less damaged the armor, the higher the bonus).</p>
@@ -433,8 +463,9 @@
         </table>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Barbarian (20%) · Wildman (20%)</div>
-          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Hedge Knight (25%)</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Barbarian (20%)</div>
+          <div class="carrier c-barb"><div class="c-dot cd-barb"></div>Wildman (20%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Hedge Knight (25%)</div>
         </div>
       </div>
     </div>
@@ -450,7 +481,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Ahead of the Curve</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Soldier</span>
         </div>
         <p class="perk-desc">Sometimes the best way to win is to strike first.</p>
         <p class="perk-desc" style="margin-top:6px">Gain <span class="perk-number">10%</span> of current Initiative as additional Melee Skill and Ranged Skill, capped at <span class="perk-number">+20</span> each.</p>
@@ -469,7 +500,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Doctrine of Endurance</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Noble</span>
         </div>
         <p class="perk-desc">Faith is the panacea to pain. Gain <span class="perk-number">12%</span> of current Resolve as additional damage reduction to both Hitpoints and Armor.</p>
         <p class="perk-desc" style="margin-top:6px">Also grants immunity to <span class="perk-number">Stun</span>.</p>
@@ -477,6 +508,7 @@
         <div class="carriers">
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Deserter</div>
           <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Brigand Captain</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Prior</div>
         </div>
       </div>
     </div>
@@ -508,20 +540,31 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Monastery Training</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Martial Arts Master</span>
         </div>
         <p class="perk-desc">&ldquo;My flesh is a temple, and my fists are its pillars.&rdquo;</p>
         <p class="perk-desc" style="margin-top:6px">Years spent copying dusty manuscripts have hardened your knuckles, and endless hours of silent meditation have taught you to channel the strength of the spirit down into your fingertips. Why should a monk wield steel that rusts, or wood that rots? You have come to understand that the human body is the only weapon a man truly needs — a perfect instrument, given from above.</p>
         <p class="perk-desc" style="margin-top:6px">Now, when you set the full weight of your vows behind a punch into the jaw of some swaggering sellsword, or drive a fist into the ribs of an orc brute, the sound that follows is sweeter to your ears than any chapel bell.</p>
         <p class="perk-desc" style="margin-top:6px">While in the Monk Stance — body armor of <span class="perk-number">20</span> or less, helmet of <span class="perk-number">30</span> or less, and <span class="perk-number">both hands empty</span>:<br>
-        &nbsp;— Gain <span class="perk-number">20%</span> of current Resolve as Melee Defense.<br>
-        &nbsp;— Gain <span class="perk-number">10%</span> of current Initiative as Ranged Defense.<br>
-        &nbsp;— Every basic unarmed attack has a <span class="perk-number">50%</span> chance to follow up with another unarmed strike (<span class="perk-number">75%</span> with Energy of Qi). The follow-up costs Fatigue (no AP) and has a <span class="perk-number">−5%</span> hit chance penalty. Each follow-up has a <span class="perk-number">15%</span> chance to leave the target dazed.<br><br>
+        &nbsp;— Gain <span class="perk-number">7%</span> of remaining Stamina as Melee Defense. As you tire through the fight, your defense fades with it.<br>
+        &nbsp;— Gain <span class="perk-number">6%</span> of current Initiative as Ranged Defense.<br>
+        &nbsp;— Every basic unarmed attack has a <span class="perk-number">45%</span> chance to follow up with another unarmed strike (<span class="perk-number">70%</span> with Energy of Qi). The follow-up costs Fatigue (no AP) and has a <span class="perk-number">−5%</span> hit chance penalty. Each follow-up has a <span class="perk-number">15%</span> chance to leave the target dazed.<br>
+        &nbsp;— Reach is locked to <span class="perk-number">1</span> baseline in this stance (ignoring Tiny −1 / Huge +1 and all other modifiers). Every landed unarmed strike adds <span class="perk-number">+1 Reach</span> on top of that baseline, stacking up to <span class="perk-number">+5</span> (max effective Reach 6). A missed punch wipes the bonus to zero; stacks survive enemy turns and reset at the start of your own next turn.<br><br>
         Additionally, you suffer no <span class="perk-number">Naked penalty</span> when fighting unarmored — for a trained monk, bare flesh is a discipline.</p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-bandit"><div class="c-dot cd-bandit"></div>Monk 75% · Brawler 35% · Gladiator 25%</div>
-          <div class="carrier c-nomad"><div class="c-dot cd-nomad"></div>Vagabond 20% · Flagellant 15% · Barbarian/Wildman 8%</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Monk (75%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Brawler (35%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Gladiator (25%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Vagabond (20%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Flagellant (15%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Barbarian (8%)</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Wildman (8%)</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hollow Pilgrim</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hand of Mercy</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hollow Penitent</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Acolyte</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Prior</div>
         </div>
       </div>
     </div>
@@ -531,7 +574,7 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Ghost Step</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Martial Arts Master</span>
         </div>
         <p class="perk-desc">&ldquo;The world is illusion. Battle is but a dance of shadows.&rdquo; So your old master was fond of saying — before the day he vanished forever from his locked cell.</p>
         <p class="perk-desc" style="margin-top:6px">Having mastered the ghost step, you move across the battlefield like smoke rising from a funeral pyre. Enemies swing in fury, and their blades cut only empty air. Where a heavy knight founders in the mud and chokes inside his own helmet, you draw a single breath, take a single step — and find yourself standing at his back, with not a drop of effort wasted.</p>
@@ -541,7 +584,11 @@
         <p class="perk-desc" style="margin-top:6px"><em>Requires Monastery Training.</em></p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-player"><div class="c-dot cd-player"></div>Player only — same backgrounds as Monastery Training</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Same player backgrounds as Monastery Training</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hand of Mercy</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hollow Penitent</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Acolyte</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Prior</div>
         </div>
       </div>
     </div>
@@ -551,13 +598,13 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Spiritual Armor</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Martial Arts Master</span>
         </div>
         <p class="perk-desc">&ldquo;Firmness of spirit is the better shield.&rdquo;</p>
         <p class="perk-desc" style="margin-top:6px">Your body is only the temporary vessel of your soul — but this vessel proves surprisingly hard to break, thanks to a lifelong habit of suffering. Decades of fasting and harsh penance were not for nothing. After the half-blind old abbot had you flogged for years for the smallest stumble in the psalms, an enemy dagger feels no worse than a friendly pat on the shoulder. You have learned to part your mind from the suffering flesh. When the blade cuts your skin, you merely remember the cold winters of an unheated monastery and understand: it has been worse.</p>
         <p class="perk-desc" style="margin-top:6px">The world around is vanity, the cries of the dying, the stench of unwashed bodies. But within you — only the silence of an abandoned cell, and the echo of the morning prayer. While your comrades panic at the sight of a bloodied field, you only sigh meekly, remembering that all things in this world pass away.</p>
         <p class="perk-desc" style="margin-top:6px">Neither the dreadful shrieks of the undead, nor the ghosts that haunt old graveyards, nor the bellowing of orcs — nothing can stir the calm within you. You watch an axe hurled at your head with the same quiet indifference you once gave a buzzing fly during an all-night vigil.</p>
-        <p class="perk-desc" style="margin-top:6px">While in the Monk Stance, incoming damage is reduced by <span class="perk-number">0.5%</span> for every point of current Resolve, up to a <span class="perk-number">95%</span> cap (reached at 190 Resolve).</p>
+        <p class="perk-desc" style="margin-top:6px">While in the Monk Stance, incoming <span class="perk-number">HP damage</span> is reduced by <span class="perk-number">0.4%</span> for every point of current Resolve, up to a <span class="perk-number">60%</span> cap (reached at 150 Resolve). Armor damage is <em>not</em> reduced — the monk's protection is the spirit, not the cloth.</p>
         <p class="perk-desc" style="margin-top:6px"><em>Requires Monastery Training.</em></p>
         <table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0 10px;color:#4a3e2a">
           <tr style="border-bottom:0.5px solid #c9b384">
@@ -565,14 +612,17 @@
             <th style="text-align:left;padding:3px 8px;font-family:'Cinzel',serif;font-weight:600;font-size:11px;color:#7a6a50">Damage reduction</th>
             <th style="text-align:left;padding:3px 0;font-family:'Cinzel',serif;font-weight:600;font-size:11px;color:#7a6a50">Note</th>
           </tr>
-          <tr><td style="padding:3px 8px 3px 0">50</td><td style="padding:3px 8px">25%</td><td style="padding:3px 0">low Resolve</td></tr>
-          <tr><td style="padding:3px 8px 3px 0">100</td><td style="padding:3px 8px">50%</td><td style="padding:3px 0">mid Resolve</td></tr>
-          <tr><td style="padding:3px 8px 3px 0">130</td><td style="padding:3px 8px">65%</td><td style="padding:3px 0">typical late-game monk</td></tr>
-          <tr><td style="padding:3px 8px 3px 0">190+</td><td style="padding:3px 8px"><b style="color:var(--rust)">95% (cap)</b></td><td style="padding:3px 0">hard cap</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">50</td><td style="padding:3px 8px">20%</td><td style="padding:3px 0">low Resolve</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">100</td><td style="padding:3px 8px">40%</td><td style="padding:3px 0">mid Resolve</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">130</td><td style="padding:3px 8px">52%</td><td style="padding:3px 0">typical late-game monk</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">150+</td><td style="padding:3px 8px"><b style="color:var(--rust)">60% (cap)</b></td><td style="padding:3px 0">hard cap</td></tr>
         </table>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-player"><div class="c-dot cd-player"></div>Player only — same backgrounds as Monastery Training</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Same player backgrounds as Monastery Training</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hand of Mercy</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hollow Penitent</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Prior</div>
         </div>
       </div>
     </div>
@@ -582,37 +632,40 @@
       <div class="perk-body">
         <div class="perk-top">
           <span class="perk-name">Energy of Qi</span>
-          <span class="perk-source src-aug">BP Augmenteds</span>
+          <span class="perk-source src-aug">Martial Arts Master</span>
         </div>
         <p class="perk-desc">You have come to know the secret of the energy that flows within every living thing. Your strikes are no longer mere collisions of flesh against flesh — with every motion you release the spiritual force you have gathered, and that force passes clean through any armor.</p>
         <p class="perk-desc" style="margin-top:6px">But this power is like a candle's flame in the wind: it burns brightest while the body is fresh and full of strength. The more you tire, the dimmer the spark within you grows. To strike a foe stone dead, you must be calm and rested. Rage and ragged breath make poor companions in battle.</p>
-        <p class="perk-desc" style="margin-top:6px">While in the Monk Stance, every melee hit deals additional <span class="perk-number">bonus HP damage</span> (bypassing armor) equal to <span class="perk-number">10%</span> of (current Resolve + remaining stamina), capped at <span class="perk-number">+30 HP</span>.</p>
+        <p class="perk-desc" style="margin-top:6px">While in the Monk Stance, every melee hit deals additional <span class="perk-number">bonus HP damage</span> (bypassing armor) equal to a random <span class="perk-number">14–18%</span> (rolled per hit) of remaining Stamina, capped at <span class="perk-number">+30 HP</span>. The bonus fades as you tire — Qi flows freely only through a body that is calm and rested.</p>
         <table style="width:100%;border-collapse:collapse;font-size:12px;margin:8px 0 10px;color:#4a3e2a">
           <tr style="border-bottom:0.5px solid #c9b384">
             <th style="text-align:left;padding:3px 8px 3px 0;font-family:'Cinzel',serif;font-weight:600;font-size:11px;color:#7a6a50">State</th>
             <th style="text-align:left;padding:3px 8px;font-family:'Cinzel',serif;font-weight:600;font-size:11px;color:#7a6a50">Bonus HP damage</th>
             <th style="text-align:left;padding:3px 0;font-family:'Cinzel',serif;font-weight:600;font-size:11px;color:#7a6a50">Example</th>
           </tr>
-          <tr><td style="padding:3px 8px 3px 0">Fresh</td><td style="padding:3px 8px">+20</td><td style="padding:3px 0">Resolve 100, MaxFat 100, CurFat 0</td></tr>
-          <tr><td style="padding:3px 8px 3px 0">Half-spent</td><td style="padding:3px 8px">+15</td><td style="padding:3px 0">Resolve 100, CurFat 50</td></tr>
-          <tr><td style="padding:3px 8px 3px 0">Exhausted</td><td style="padding:3px 8px">+10</td><td style="padding:3px 0">Resolve 100, CurFat ≥ MaxFat</td></tr>
-          <tr><td style="padding:3px 8px 3px 0">Late-game peak</td><td style="padding:3px 8px"><b style="color:var(--rust)">+26 → +30 (cap)</b></td><td style="padding:3px 0">Resolve 130, MaxFat 130, fresh</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">Fresh</td><td style="padding:3px 8px">+14 – +18</td><td style="padding:3px 0">MaxFat 100, CurFat 0</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">Half-spent</td><td style="padding:3px 8px">+7 – +9</td><td style="padding:3px 0">MaxFat 100, CurFat 50</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">Exhausted</td><td style="padding:3px 8px">0</td><td style="padding:3px 0">CurFat ≥ MaxFat</td></tr>
+          <tr><td style="padding:3px 8px 3px 0">High-stamina fresh</td><td style="padding:3px 8px"><b style="color:var(--rust)">+18 – +24</b></td><td style="padding:3px 0">MaxFat 130, CurFat 0</td></tr>
         </table>
-        <p class="perk-desc" style="margin-top:6px">Also raises the unarmed follow-up chance from <span class="perk-number">50%</span> to <span class="perk-number">75%</span>.</p>
+        <p class="perk-desc" style="margin-top:6px">Also raises the unarmed follow-up chance from <span class="perk-number">45%</span> to <span class="perk-number">70%</span>.</p>
         <p class="perk-desc" style="margin-top:6px">After a basic unarmed strike, there is a <span class="perk-number">10%</span> chance to instantly chain a third strike against a <span class="perk-number">random adjacent enemy</span> (other than the original target). The chain strike costs Fatigue but no AP and has a <span class="perk-number">−10%</span> hit chance penalty.</p>
         <p class="perk-desc" style="margin-top:6px">Also grants the active skill <span class="perk-number">Laying on Hands</span> (once per turn, 6 AP / 40 Fatigue, adjacent allies only), which heals an ally for <span class="perk-number">20%</span> of the monk's current Resolve and removes poisons, bleeds and charm effects.</p>
-        <p class="perk-desc" style="margin-top:6px"><strong>Side effect:</strong> Each unarmed strike costs <span class="perk-number">+5</span> additional Fatigue while in Monk Stance (applies to follow-up punches too).</p>
+        <p class="perk-desc" style="margin-top:6px"><strong>Side effect:</strong> Each unarmed strike costs <span class="perk-number">+3</span> additional Fatigue while in Monk Stance (applies to follow-up punches too).</p>
         <p class="perk-desc" style="margin-top:6px"><em>Requires Monastery Training.</em></p>
         <div class="carriers-label">Carried by</div>
         <div class="carriers">
-          <div class="carrier c-player"><div class="c-dot cd-player"></div>Player only — same backgrounds as Monastery Training</div>
+          <div class="carrier c-player"><div class="c-dot cd-player"></div>Same player backgrounds as Monastery Training</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hand of Mercy</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Hollow Penitent</div>
+          <div class="carrier c-cult"><div class="c-dot cd-cult"></div>Dark Acolyte</div>
         </div>
       </div>
     </div>
   </div>
 
 <div class="footer">
-    Hardened Rogues · Perk Reference Sheet · v1.5.22 · All perks are part of BP_Augmenteds_rf · Requires 
+    Hardened Rogues · Perk Reference Sheet · v1.5.50 · All perks are part of BP_Augmenteds_rf · Requires 
     <a href="https://www.nexusmods.com/battlebrothers/mods/765" target="_blank">Reforged</a> + 
     <a href="https://www.nexusmods.com/battlebrothers/mods/794" target="_blank">Hardened</a> + 
     <a href="https://www.nexusmods.com/battlebrothers/mods/986" target="_blank">BP Augmenteds</a>
