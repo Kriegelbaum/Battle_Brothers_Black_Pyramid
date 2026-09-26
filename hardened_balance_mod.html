@@ -696,12 +696,14 @@
         <span class="perk-name">Warden</span>
         <span class="perk-source src-rew">Reworked</span>
       </div>
-      <p class="perk-desc">Added a gating requirement to the skill. Warden is now active only for fighters carrying a shield weighing <span class="num">15</span> or more, or a two-handed melee weapon in their own hands.</p>
+      <p class="perk-desc">Reworked. The damage reduction now applies only against an enemy standing adjacent to both you and the warded ally &mdash; the two of you must hold the line against the same foe. As a side effect, it no longer soaks ranged attacks.</p>
+      <p class="perk-desc">The requirement is now simply a shield in the offhand, of any weight. Protection scales with the shield's weight: <span class="num">5%</span> base, <span class="num">+1%</span> per weight, up to <span class="num">30%</span>.</p>
       <div class="why">
         <span class="why-label">Why</span>
-        <p>Because it's logical. The perk grants passive protection to the ally standing beside the fighter against the very enemy adjacent to him, independent of his own defense &mdash; but how, exactly? With a big shield: a fighter carrying a large shield can passively cover not just himself but the ally right next to him. Or with a two-hander: a fighter swinging a two-handed weapon can keep enemies at bay and spoil their aim, denying them a clean, well-placed blow.</p>
+        <p>Because it's logical. A fighter with a shield can passively cover not just himself but the ally holding the line right beside him &mdash; against the very enemy they both face. The bigger and heavier the shield, the more of that ally he can screen, so the protection scales with its weight. And it only helps against a foe pressing them both in melee: you can't body-block an arrow for someone standing off to your side.</p>
       </div>
       <div class="files">
+        <div class="file"><span class="file-path">scripts/skills/effects/hd_warded_effect.nut</span><span class="file-tag t-replaced">replaced</span></div>
         <div class="file"><span class="file-path">scripts/skills/perks/perk_hd_warden.nut</span><span class="file-tag t-replaced">replaced</span></div>
         <div class="file"><span class="file-path">mod_hardened/hooks/config/strings/strings.nut</span><span class="file-tag t-replaced">replaced</span></div>
       </div>
