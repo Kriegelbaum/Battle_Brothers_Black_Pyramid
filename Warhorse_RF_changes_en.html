@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warhorse RF — changes 0.1.3–0.2.5</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:      #1a1410;
+    --parchment:#f5edd8;
+    --parch2:   #ede0c4;
+    --gold:     #b8892a;
+    --gold2:    #d4a843;
+    --rust:     #8b3a1e;
+    --steel:    #4a5568;
+    --shadow:   rgba(0,0,0,0.18);
+
+    --rew:      #5a1a0a;  --rew-bg:   #f5ddd8;  --rew-bd:   #e8b0a0;   /* Reworked */
+    --ref:      #1a4a6e;  --ref-bg:   #deeaf5;  --ref-bd:   #a8c8e8;   /* Fixed */
+    --sys:      #3d5a2a;  --sys-bg:   #e6efda;  --sys-bd:   #bcd49a;   /* New */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #2a1f14;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, #3d2a18 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, #1a1008 0%, transparent 60%);
+    min-height: 100vh;
+    padding: 40px 24px;
+    font-family: 'EB Garamond', Georgia, serif;
+    color: var(--ink);
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--parchment);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    border: 1px solid #c4a96a;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 0 80px rgba(184,137,42,0.06);
+    padding: 48px 52px 56px;
+    position: relative;
+  }
+  .page::before, .page::after { content: ''; position: absolute; border: 1px solid var(--gold); opacity: 0.4; }
+  .page::before { inset: 12px; pointer-events: none; }
+  .page::after  { inset: 15px; opacity: 0.15; pointer-events: none; }
+
+  /* ── HEADER ── */
+  .header { text-align: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--gold); }
+  .header-ornament { font-size: 11px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; font-family: 'Cinzel', serif; margin-bottom: 8px; }
+  h1 { font-family: 'Cinzel', serif; font-size: 30px; font-weight: 700; color: var(--rust); line-height: 1.2; margin-bottom: 4px; }
+  .subtitle { font-size: 15px; color: var(--steel); font-style: italic; }
+  .header-line { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; font-size: 11px; color: #7a6a50; letter-spacing: 0.10em; text-transform: uppercase; font-family: 'Cinzel', serif; }
+  .header-line::before, .header-line::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); max-width: 90px; opacity: 0.5; }
+
+  .header-line a { color: var(--rust); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .header-line a:hover { border-bottom-color: var(--rust); }
+
+  /* ── INTRO ── */
+  .legend { margin-bottom: 14px; padding: 14px 20px; background: rgba(184,137,42,0.06); border: 0.5px solid rgba(184,137,42,0.3); border-radius: 2px; font-size: 15px; line-height: 1.65; color: #4a3e2a; }
+  .legend b { color: var(--rust); }
+  .legend p + p { margin-top: 8px; }
+  .keys { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 30px; padding: 9px 18px; font-size: 12px; color: var(--steel); }
+  .key { display: flex; align-items: center; gap: 7px; }
+  .key-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+  .kd-rew { background: #b85a3a; }
+  .kd-ref { background: #2f7bb0; }
+  .kd-sys { background: #6a9444; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 34px; }
+  .section-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 0.5px solid rgba(184,137,42,0.4); display: flex; align-items: center; gap: 10px; }
+  .section-title::before { content: '✦'; font-size: 9px; color: var(--gold2); }
+
+  /* ── CALLOUT (было → стало крупно) ── */
+  .callout { display: grid; grid-template-columns: 110px 1fr; margin-bottom: 14px; border: 0.5px solid #c9b384; border-radius: 2px; overflow: hidden; background: var(--parch2); box-shadow: 0 1px 4px var(--shadow); }
+  .callout-num { background: #312017; color: var(--gold2); font-family: 'Cinzel', serif; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 10px 6px; text-align: center; }
+  .callout-num .big { font-size: 20px; font-weight: 700; line-height: 1; }
+  .callout-num .arr { font-size: 11px; opacity: 0.6; margin: 1px 0; }
+  .callout-num .new { font-size: 22px; font-weight: 700; color: #e0b84e; line-height: 1; }
+  .callout-num .lbl { font-size: 8px; letter-spacing: 0.15em; opacity: 0.65; text-transform: uppercase; margin-top: 4px; }
+  .callout-body { padding: 13px 18px; }
+
+  /* ── CHANGE CARD ── */
+  .perk-card { display: grid; grid-template-columns: 80px 1fr; margin-bottom: 14px; border: 0.5px solid #c9b384; border-radius: 2px; overflow: hidden; background: var(--parch2); box-shadow: 0 1px 4px var(--shadow); }
+  .perk-icon-col { background: #312017; display: flex; align-items: center; justify-content: center; width: 80px; min-width: 80px; }
+  .perk-icon { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; line-height: 1; border: 1px solid rgba(212,168,67,0.35); color: #e0b84e; font-family: 'Cinzel', serif; }
+  .perk-body { padding: 12px 16px 13px; }
+  .perk-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .perk-name { font-family: 'Cinzel', serif; font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .perk-source { font-size: 10px; padding: 1px 8px; border-radius: 2px; font-family: 'Cinzel', serif; letter-spacing: 0.05em; white-space: nowrap; }
+  .src-rew { background: var(--rew-bg); color: var(--rew); border: 0.5px solid var(--rew-bd); }
+  .src-ref { background: var(--ref-bg); color: var(--ref); border: 0.5px solid var(--ref-bd); }
+  .src-sys { background: var(--sys-bg); color: var(--sys); border: 0.5px solid var(--sys-bd); }
+  .ver { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8a7a5a; margin-left: auto; }
+
+  .perk-desc { font-size: 13.5px; color: #4a3e2a; line-height: 1.55; }
+  .perk-desc + .perk-desc { margin-top: 6px; }
+  .num { font-weight: 500; color: var(--rust); }
+
+  /* было / стало */
+  .bs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0 2px; }
+  .bs > div { padding: 8px 11px; border-radius: 2px; font-size: 13px; line-height: 1.5; }
+  .bs .was { background: rgba(74,85,104,0.07); border: 0.5px solid rgba(74,85,104,0.25); color: #5a5a5a; }
+  .bs .now { background: rgba(184,137,42,0.10); border: 0.5px solid rgba(184,137,42,0.45); color: #3a2e1a; }
+  .bs .tag { display: block; font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 3px; }
+  .bs .was .tag { color: #7a7a7a; }
+  .bs .now .tag { color: #8a6a30; }
+  .bs ul, .perk-desc ul { margin-left: 16px; }
+  .bs li { margin-top: 2px; }
+
+  /* WHY block */
+  .why { margin-top: 9px; padding: 8px 12px; background: rgba(184,137,42,0.05); border-left: 2px solid var(--gold); border-radius: 0 2px 2px 0; }
+  .why-label { font-size: 9.5px; font-family: 'Cinzel', serif; color: #8a6a30; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+  .why p { font-size: 12.5px; color: #5a4a30; line-height: 1.55; font-style: italic; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-size: 12.5px; }
+  th { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a30; text-align: left; padding: 5px 8px; border-bottom: 1px solid rgba(184,137,42,0.5); font-weight: 600; }
+  td { padding: 5px 8px; border-bottom: 0.5px solid rgba(184,137,42,0.22); color: #4a3e2a; vertical-align: top; }
+  td.c, th.c { text-align: center; }
+  td.old { color: #8a8a8a; }
+  td.hi { color: var(--rust); font-weight: 500; }
+  tr:last-child td { border-bottom: none; }
+
+  /* ── FOOTER ── */
+  .footer { margin-top: 40px; padding-top: 18px; border-top: 0.5px solid rgba(184,137,42,0.4); text-align: center; font-size: 12px; color: #8a7a5a; font-style: italic; line-height: 1.6; }
+  .footer .sig { display: block; margin-top: 10px; font-family: 'Cinzel', serif; font-style: normal; font-size: 10.5px; letter-spacing: 0.12em; color: #9a8a6a; }
+
+  @media (max-width: 640px) {
+    .page { padding: 30px 20px 36px; }
+    .perk-card, .callout { grid-template-columns: 64px 1fr; }
+    .perk-icon-col { width: 64px; min-width: 64px; }
+    .bs { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-ornament">Black Pyramid&nbsp;·&nbsp;Reforged</div>
+  <h1>Warhorse RF</h1>
+  <p class="subtitle">Warhorses: changelog, versions 0.1.3 – 0.2.5</p>
+  <div class="header-line"><span><a href="https://www.nexusmods.com/battlebrothers/mods/507" target="_blank">Original mod</a>&nbsp;·&nbsp;mod author: krigun</span></div>
+</div>
+
+<div class="legend">
+  <p>A horse is now a roleplay choice for a fighter, not a free bonus. In the open field a rider is fast, and on a good horse he is also hard to unseat. In forests and on rocks, though, he is slower than a man on foot. A rider can now be thrown off his horse by a blow from a glaive or a hook, and an archer in the saddle shoots a little worse. There is a reason to dismount now, and a horse with <b>Pathfinder</b> has become truly valuable — it is no longer handed out to every horse.</p>
+  <p>All changes are listed below.</p>
+</div>
+
+<div class="keys">
+  <div class="key"><span class="key-dot kd-rew"></span>Reworked</div>
+  <div class="key"><span class="key-dot kd-sys"></span>New</div>
+  <div class="key"><span class="key-dot kd-ref"></span>Fixed</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Rider: Initiative, Defense, Armor Weight</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Rider Initiative</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.4</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>When mounted, a fighter took the horse’s whole Initiative: <span class="num">150</span> plus the riding perk bonuses. His own Initiative was ignored, so a rider had no reason to train it.</div>
+        <div class="now"><span class="tag">Now</span>The rider keeps his own Initiative: base, armor weight, fatigue, his perks and effects. With Advanced Riding he also gets <span class="num">10%</span> of the horse’s Initiative.</div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Defense: Horse and Rider Separately</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.4</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>The rider’s defense was the horse’s defense (plus <span class="num">+30%</span> of the fighter’s base defense with Advanced Riding). Sitting on a horse was a bad deal for a heavy knight because his defense was cut so hard.</div>
+        <div class="now"><span class="tag">Now</span>Before the hit roll, the game decides who takes the attack:
+          <ul>
+            <li>the horse — with a chance equal to its “size” (<span class="num">50–60%</span>); the roll is made against the horse’s defense and the horse takes the damage;</li>
+            <li>the rider — the roll is made against his own defense: <span class="num">35%</span> of it, <span class="num">85%</span> with Advanced Riding, with all bonuses included.</li>
+          </ul></div>
+      </div>
+      <p class="perk-desc" style="margin-top:8px">The hit chance preview shows an honest average: the defense weighted by the chance to hit the horse.</p>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Armor Weight</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.4</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>The rider’s body armor and helmet weighed on the horse, lowering its Initiative and Stamina.</div>
+        <div class="now"><span class="tag">Now</span>The rider’s armor weighs on the rider himself, as it should. The horse carries only its own armor.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Riding Perk Tree</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Riding</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.7</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>A mounted rider’s Initiative was equal to the horse’s Initiative; the rider’s own Initiative was ignored.</div>
+        <div class="now"><span class="tag">Now</span>A mounted rider’s Initiative is the rider’s own Initiative plus the bonuses of the riding perks. The perk tooltip now says this directly and also explains falling off a horse and movement costs in the saddle.</div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Advanced Riding</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.4 · 0.2.2</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>
+          <ul>
+            <li><span class="num">+30%</span> of the fighter’s base defense added to the horse’s</li>
+            <li><span class="num">+20</span> Initiative</li>
+            <li><span class="num">+1</span> Reach</li>
+            <li><span class="num">+10</span> Breakthrough</li>
+            <li><span class="num">+10</span> chance to stay in the saddle</li>
+          </ul>
+        </div>
+        <div class="now"><span class="tag">Now</span>
+          <ul>
+            <li>attacks on the rider meet <span class="num">85%</span> of his own defense (<span class="num">35%</span> without the perk)</li>
+            <li><span class="num">+10%</span> of the horse’s Initiative added to the rider’s</li>
+            <li>chance to fall reduced by <span class="num">25%</span> of the rider’s current Stamina (up to <span class="num">−75%</span>): a fresh rider holds on better than a tired one</li>
+            <li><span class="num">+10</span> Breakthrough — unchanged</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Horseback Archery</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.5 · 0.2.5</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Without the perk <span class="num">−30</span> Ranged Skill; the perk removed the penalty completely.</div>
+        <div class="now"><span class="tag">Now</span>Without the perk <span class="num">−35%</span> Ranged Skill, with the perk <span class="num">−15%</span>, and <span class="num">−10%</span> with a crossbow. You can’t shoot from the saddle with no penalty at all — unless you are a Scythian warrior :)</div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Charge Training</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.8</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span><span class="num">+20</span> Initiative for the rider; <span class="num">+10</span> Breakthrough for Horse Charge (mistakenly described as “chance to knock the target back”).</div>
+        <div class="now"><span class="tag">Now</span><span class="num">+40</span> Initiative for the <b>horse</b>, not the rider. With Advanced Riding the rider gets his share of it. <span class="num">+10</span> Breakthrough stays, and the description is fixed: higher Line Break Chance and faster acceleration.</div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Deadly Charge</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.7</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span><span class="num">+20</span> Initiative when mounted.</div>
+        <div class="now"><span class="tag">Now</span><span class="num">+10</span> Initiative for the rider when mounted. If the rider falls or dismounts, the bonus passes to the horse left on the field.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Shooting from the Saddle and Height</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">High Ground Bonus</span><span class="perk-source src-sys">New</span><span class="ver">0.1.5 · 0.1.6</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>The rider used the normal height rules: <span class="num">+10%</span> to hit from above, <span class="num">−10%</span> per level when shooting uphill.</div>
+        <div class="now"><span class="tag">Now</span>
+          <ul>
+            <li>shooting down — no bonus to hit, but range from high ground still increases;</li>
+            <li>shooting up — the horse’s height cancels one level of the penalty: one level up has no penalty, two levels <span class="num">−10%</span>, three levels <span class="num">−20%</span>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Falling off a Horse</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">New Falling Mechanic</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.2.0 – 0.2.2</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Checked only when a single hit took <span class="num">40%+</span> of Hitpoints. The chance to stay in the saddle was the rider’s <b>Resolve</b> (<span class="num">+10</span> with Advanced Riding); when the horse was hit, the horse’s Resolve. Weak hits never unseated anyone, and a rider with high Resolve almost never fell.</div>
+        <div class="now"><span class="tag">Now</span>The check is made on <b>every</b> hit on the rider, with no threshold:
+          <ul>
+            <li><span class="num">1%</span> for every <span class="num">2%</span> of Hitpoints lost to the hit;</li>
+            <li>× the attacker’s weapon;</li>
+            <li>+ special attack bonus;</li>
+            <li>− Advanced Riding;</li>
+            <li>− the horse’s steadiness. The chance never goes below zero.</li>
+          </ul>
+        </div>
+      </div>
+      <table>
+        <tr><th>Attacker’s weapon</th><th class="c">Multiplier</th></tr>
+        <tr><td>Hammers, maces, polearms, flails</td><td class="c hi">×1.2</td></tr>
+        <tr><td>Swords, daggers</td><td class="c hi">×0.7</td></tr>
+        <tr><td>Everything else, ranged and throwing</td><td class="c">×1</td></tr>
+      </table>
+      <table>
+        <tr><th>Special attack</th><th class="c">Bonus</th></tr>
+        <tr><td>Hooks: polearm Hook, Serpent Hook, Flesh Pull</td><td class="c hi">+20%</td></tr>
+        <tr><td>Knock Back, Repel, Shield Bash, orc Line Breaker, Unstoppable Charge, the Black Pyramid wolf boss strike, beast knockbacks</td><td class="c hi">+5%</td></tr>
+        <tr><td>Strike Down, Knock Out, Knock Over</td><td class="c hi">+5%</td></tr>
+      </table>
+      <p class="perk-desc">Ranged attacks unseat riders just as melee ones do. If the horse took the hit, the damage does not count — only the special attack bonus does. Hooks and knockbacks, which used to simply fail against a rider, can now pull him out of the saddle.</p>
+      <table>
+        <tr><th>Example (rider with 80 Hitpoints)</th><th class="c">Chance to fall</th></tr>
+        <tr><td>Sword takes 24 Hitpoints</td><td class="c">10%</td></tr>
+        <tr><td>Hammer takes 24 Hitpoints</td><td class="c">18%</td></tr>
+        <tr><td>Hook, no damage</td><td class="c">20%</td></tr>
+        <tr><td>Strike Down with a mace, takes 30 Hitpoints</td><td class="c">27%</td></tr>
+      </table>
+      <p class="perk-desc">A fallen rider is thrown onto an adjacent tile and stunned; the horse stays on the field. The combat log shows the chance and the roll.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <div class="callout-num"><span class="big">none</span><span class="arr">now</span><span class="new">0–20</span><span class="lbl">steadiness</span></div>
+    <div class="callout-body">
+      <div class="perk-top"><span class="perk-name">Horse Steadiness</span><span class="perk-source src-sys">New</span><span class="ver">0.2.0</span></div>
+      <p class="perk-desc"><span class="num">20%</span> of horses get <span class="num">0</span> to <span class="num">20</span> points of steadiness when created, subtracted from the rider’s chance to fall. Shown in the horse’s tooltip (“Steady”) and in its panel; it is saved and travels with the horse.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Mounted Movement</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Movement Cost by Terrain</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.2.3 – 0.2.5</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Every horse had Pathfinder, so a rider always moved by its cost table. A horse without Pathfinder would have moved like a man on foot — no speed at all.</div>
+        <div class="now"><span class="tag">Now</span>On roads and open fields a horse is twice as fast as a man on foot. On rough terrain an ordinary horse is <span class="num">1 AP</span> worse than on foot. The rare Pathfinder makes it as good as on foot there and lets it climb for free.</div>
+      </div>
+      <table>
+        <tr><th>Terrain, AP per tile</th><th class="c">On foot</th><th class="c">Ordinary horse</th><th class="c">Horse with Pathfinder</th></tr>
+        <tr><td>Road, open field</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
+        <tr><td>Sand</td><td class="c">2</td><td class="c">2</td><td class="c">2</td></tr>
+        <tr><td>Rough ground, forest</td><td class="c">3</td><td class="c hi">4</td><td class="c">3</td></tr>
+        <tr><td>Rocks, swamp, shallow water</td><td class="c">4</td><td class="c hi">5</td><td class="c">4</td></tr>
+      </table>
+      <div class="why"><span class="why-label">Why</span><p>A horse gives speed in open country and bogs down in forests and on rocks — there it pays to dismount. A horse that moves through a forest like a man on foot is a rare find.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Horses: Stats and Perks</div>
+  <div class="callout">
+    <div class="callout-num"><span class="big">150</span><span class="arr">now</span><span class="new">80–160</span><span class="lbl">hitpoints</span></div>
+    <div class="callout-body">
+      <div class="perk-top"><span class="perk-name">Warhorse Stats</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.9 · 0.2.4</span></div>
+      <p class="perk-desc">Horses from shops, loot and enemies all roll by the same rules.</p>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">🎲</div></div>
+    <div class="perk-body">
+      <table>
+        <tr><th>Stat</th><th class="c">Before</th><th class="c">Now</th></tr>
+        <tr><td>Hitpoints</td><td class="c old">150–180</td><td class="c hi">80–160</td></tr>
+        <tr><td>“Size” (chance the horse takes a hit)</td><td class="c old">50–60%</td><td class="c">50–60%</td></tr>
+        <tr><td>Stamina</td><td class="c old">150–180</td><td class="c">150–180</td></tr>
+        <tr><td>Resolve</td><td class="c old">40–50</td><td class="c hi">35–70</td></tr>
+        <tr><td>Melee Skill</td><td class="c old">60–70</td><td class="c hi">40–65</td></tr>
+        <tr><td>Melee Defense</td><td class="c old">10–15</td><td class="c hi">10–25</td></tr>
+        <tr><td>Ranged Defense</td><td class="c old">10–15</td><td class="c hi">10–20</td></tr>
+        <tr><td>Initiative</td><td class="c old">150–170</td><td class="c hi">120–160</td></tr>
+        <tr><td>Fatigue Recovery</td><td class="c old">20–25</td><td class="c hi">20–35</td></tr>
+        <tr><td>Breakthrough (charge)</td><td class="c old">40–60</td><td class="c">40–60</td></tr>
+      </table>
+      <p class="perk-desc">Breakthrough now depends on how well Resolve, Melee Skill and Initiative rolled: the best horse gets <span class="num">60</span>, the worst <span class="num">40</span>. The price is still derived from the rolls and perks, not the other way round.</p>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">✧</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Horse Perks</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.9 · 0.2.5</span></div>
+      <table>
+        <tr><th>Perk</th><th class="c">Before</th><th class="c">Now</th><th>What it does for the horse</th></tr>
+        <tr><td>Pathfinder</td><td class="c old">always</td><td class="c hi">6%</td><td>moves over rough terrain like a man on foot, climbs for free</td></tr>
+        <tr><td>Colossus</td><td class="c old">50%</td><td class="c hi">20%</td><td>+25% Hitpoints</td></tr>
+        <tr><td>Battle Forged</td><td class="c old">50%</td><td class="c hi">30%</td><td>less damage to the horse’s armor</td></tr>
+        <tr><td>Brawny</td><td class="c old">50%, shop horses only</td><td class="c hi">30%, all horses</td><td>the horse’s armor weighs on it less</td></tr>
+        <tr><td>Relentless</td><td class="c old">50%</td><td class="c hi">15%</td><td>fatigue lowers the horse’s Initiative less</td></tr>
+        <tr><td>Dodge</td><td class="c old">50%, enemy horses only</td><td class="c hi">10%, all horses</td><td>works for a horse without a rider</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Compatibility and Interface</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">☩</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Monk and Horse</span><span class="perk-source src-sys">New</span><span class="ver">0.1.3</span></div>
+      <p class="perk-desc">A brother with Monastery Training (Black Pyramid) cannot mount a horse. The two trees lock each other: taking Monastery Training closes the riding tree; taking Riding closes the monk tree. Enemy monks never appear on horseback.</p>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">◐</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Mount / Unmount Skills</span><span class="perk-source src-ref">Fixed</span><span class="ver">0.1.3</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Mount was active even with no horse nearby. Disabled skills showed as a solid black icon.</div>
+        <div class="now"><span class="tag">Now</span>Mount is active only next to a free horse; otherwise it is greyed out with a tooltip. Both skills have proper grey disabled icons.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  All numbers live in the mod settings and are easy to tune.
+  <span class="sig">Warhorse RF · 0.2.5</span>
+</div>
+
+</div>
+</body>
+</html>
