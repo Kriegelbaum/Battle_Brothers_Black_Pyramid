@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warhorse RF — изменения 0.1.3–0.2.4</title>
+<title>Warhorse RF — изменения 0.1.3–0.3.6</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -145,7 +145,7 @@
 <div class="header">
   <div class="header-ornament">Black Pyramid&nbsp;·&nbsp;Reforged</div>
   <h1>Warhorse RF</h1>
-  <p class="subtitle">Боевые кони: список изменений, версии 0.1.3 – 0.2.5</p>
+  <p class="subtitle">Боевые кони: список изменений, версии 0.1.3 – 0.3.6</p>
   <div class="header-line"><span><a href="https://www.nexusmods.com/battlebrothers/mods/507" target="_blank">Оригинальный мод</a>&nbsp;·&nbsp;автор: krigun</span></div>
 </div>
 
@@ -375,6 +375,29 @@
       <div class="why"><span class="why-label">Зачем</span><p>Конь даёт скорость на открытой местности и вязнет в лесу и на камнях — там выгоднее спешиться. Конь, который и в лесу идёт как пеший, — редкая находка.</p></div>
     </div>
   </div>
+
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Усталость в седле</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.3.6</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Всадник за каждую клетку уставал так же, как пеший: конь его нёс, но ноги всё равно уставали.</div>
+        <div class="now"><span class="tag">Стало</span>Ход в седле отнимает <span class="num">вдвое меньше</span> усталости, чем пешком (с округлением вверх, не меньше <span class="num">1</span> за клетку). Считается от пешей стоимости самого бойца, поэтому правки Reforged и Hardened сохраняются. У коня с Pathfinder — половина его собственной таблицы. Спешился — обычная стоимость.</div>
+      </div>
+      <table>
+        <tr><th>Местность, усталость за клетку</th><th class="c">Пешком</th><th class="c">Обычный конь</th><th class="c">Конь с Pathfinder</th></tr>
+        <tr><td>Дорога</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
+        <tr><td>Ровное поле</td><td class="c">4</td><td class="c hi">2</td><td class="c">1</td></tr>
+        <tr><td>Песок</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
+        <tr><td>Неровная земля, лес</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
+        <tr><td>Камни</td><td class="c">8</td><td class="c hi">4</td><td class="c">2</td></tr>
+        <tr><td>Мелководье</td><td class="c">12</td><td class="c hi">6</td><td class="c">3</td></tr>
+        <tr><td>Болото</td><td class="c">14</td><td class="c hi">7</td><td class="c">4</td></tr>
+      </table>
+      <p class="perk-desc">Числа даны для ванильной пешей таблицы; если другие моды её меняют, всадник платит половину своей пешей стоимости.</p>
+      <div class="why"><span class="why-label">Зачем</span><p>Всадника несёт конь — он должен уставать на ходу меньше, а не как пеший в тяжёлом доспехе.</p></div>
+    </div>
+  </div>
 </div>
 
 <!-- ═════════════ КОНИ ═════════════ -->
@@ -452,7 +475,7 @@
 
 <div class="footer">
   Все числа вынесены в настройки мода и легко подстраиваются.
-  <span class="sig">Warhorse RF · 0.2.5</span>
+  <span class="sig">Warhorse RF · 0.3.6</span>
 </div>
 
 </div>

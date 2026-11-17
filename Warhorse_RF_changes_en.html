@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warhorse RF — changes 0.1.3–0.2.5</title>
+<title>Warhorse RF — changes 0.1.3–0.3.6</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -145,7 +145,7 @@
 <div class="header">
   <div class="header-ornament">Black Pyramid&nbsp;·&nbsp;Reforged</div>
   <h1>Warhorse RF</h1>
-  <p class="subtitle">Warhorses: changelog, versions 0.1.3 – 0.2.5</p>
+  <p class="subtitle">Warhorses: changelog, versions 0.1.3 – 0.3.6</p>
   <div class="header-line"><span><a href="https://www.nexusmods.com/battlebrothers/mods/507" target="_blank">Original mod</a>&nbsp;·&nbsp;mod author: krigun</span></div>
 </div>
 
@@ -357,6 +357,28 @@
       <div class="why"><span class="why-label">Why</span><p>A horse gives speed in open country and bogs down in forests and on rocks — there it pays to dismount. A horse that moves through a forest like a man on foot is a rare find.</p></div>
     </div>
   </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Fatigue in the Saddle</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.3.6</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>A rider paid the same Fatigue per tile as a man on foot: the horse carried him, but his legs still got tired.</div>
+        <div class="now"><span class="tag">Now</span>Moving in the saddle costs <span class="num">half</span> the Fatigue of moving on foot (rounded up, at least <span class="num">1</span> per tile). It is counted from the brother’s own on-foot cost, so changes from Reforged and Hardened are kept. A horse with Pathfinder halves its own table. On foot again — normal cost.</div>
+      </div>
+      <table>
+        <tr><th>Terrain, Fatigue per tile</th><th class="c">On foot</th><th class="c">Ordinary horse</th><th class="c">Horse with Pathfinder</th></tr>
+        <tr><td>Road</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
+        <tr><td>Open field</td><td class="c">4</td><td class="c hi">2</td><td class="c">1</td></tr>
+        <tr><td>Sand</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
+        <tr><td>Rough ground, forest</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
+        <tr><td>Rocks</td><td class="c">8</td><td class="c hi">4</td><td class="c">2</td></tr>
+        <tr><td>Shallow water</td><td class="c">12</td><td class="c hi">6</td><td class="c">3</td></tr>
+        <tr><td>Swamp</td><td class="c">14</td><td class="c hi">7</td><td class="c">4</td></tr>
+      </table>
+      <p class="perk-desc">Numbers are for the vanilla on-foot table; with mods that change it, the rider pays half of whatever his on-foot cost is.</p>
+      <div class="why"><span class="why-label">Why</span><p>The horse carries the rider — he should tire less on the move, not as much as a man walking in heavy armor.</p></div>
+    </div>
+  </div>
 </div>
 
 <div class="section">
@@ -427,7 +449,7 @@
 
 <div class="footer">
   All numbers live in the mod settings and are easy to tune.
-  <span class="sig">Warhorse RF · 0.2.5</span>
+  <span class="sig">Warhorse RF · 0.3.6</span>
 </div>
 
 </div>
