@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warhorse RF — changes 0.1.3–0.3.6</title>
+<title>Warhorse RF — changes 0.1.3–0.3.7</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -145,12 +145,13 @@
 <div class="header">
   <div class="header-ornament">Black Pyramid&nbsp;·&nbsp;Reforged</div>
   <h1>Warhorse RF</h1>
-  <p class="subtitle">Warhorses: changelog, versions 0.1.3 – 0.3.6</p>
+  <p class="subtitle">Warhorses: changelog, versions 0.1.3 – 0.4.1</p>
   <div class="header-line"><span><a href="https://www.nexusmods.com/battlebrothers/mods/507" target="_blank">Original mod</a>&nbsp;·&nbsp;mod author: krigun</span></div>
 </div>
 
 <div class="legend">
-  <p>A horse is now a roleplay choice for a fighter, not a free bonus. In the open field a rider is fast, and on a good horse he is also hard to unseat. In forests and on rocks, though, he is slower than a man on foot. A rider can now be thrown off his horse by a blow from a glaive or a hook, and an archer in the saddle shoots a little worse. There is a reason to dismount now, and a horse with <b>Pathfinder</b> has become truly valuable — it is no longer handed out to every horse.</p>
+  <p>Since 0.4.0 horses are simpler: they have no perks, the Riding tree gives mounting, defense, horseback archery and Charge, and a rider is thrown off by the weapon that hits him — billhooks, halberds and pikes most of all. In the field a rider is faster than a man on foot, but rides at most 6 tiles a turn.</p>
+  <p>A horse is a roleplay choice for a fighter, not a free bonus. Horses differ in hitpoints, defense, attack and armor, like war dogs. A rider is faster than a man on foot on any terrain, but hits land on him more often (<b>75%</b>) than on the horse. A billhook, a halberd or a hook can throw him off, a shield is useless in the saddle, an archer shoots worse. There are reasons enough to dismount.</p>
   <p>All changes are listed below.</p>
 </div>
 
@@ -158,6 +159,169 @@
   <div class="key"><span class="key-dot kd-rew"></span>Reworked</div>
   <div class="key"><span class="key-dot kd-sys"></span>New</div>
   <div class="key"><span class="key-dot kd-ref"></span>Fixed</div>
+</div>
+
+<!-- ═════════════ 0.4.1 ═════════════ -->
+<div class="section">
+  <div class="section-title">0.4.1 — shields in the saddle, Charge push-back</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">A shield is useless on horseback</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Was</span>Only Shieldwall and Knock Back were blocked on horseback; the shield gave its full defense.</div>
+        <div class="now"><span class="tag">Now</span>On horseback a shield gives no Melee or Ranged Defense and none of its skills can be used (Shieldwall, Knock Back, Reforged Cover Ally and any other shield skill). Shield perks (Phalanx, Rebuke and the like) act as if there were no shield. Its weight stays. Stated in the Riding description and in the shield and skill tooltips.</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>A rider at the gallop does not hold a shield like a man in the line.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Charge push-back</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Was</span>The push-back chance was a horse stat (<span class="num">30–40%</span> plus growth from stats).</div>
+        <div class="now"><span class="tag">Now</span>Chance = weapon + rider's armor weight + run-up − target's armor weight, from <span class="num">0</span> to <span class="num">90%</span>. Weapon: two-handed spears and pikes <span class="num">35%</span>, two-handed hammers and maces <span class="num">30%</span>, polearms and one-handed spears <span class="num">25%</span>, maces, flails, two-handed axes <span class="num">20%</span>, two-handed swords and staffs <span class="num">15%</span>, axes and cleavers <span class="num">12%</span>, swords <span class="num">10%</span>, daggers <span class="num">3%</span>, whips <span class="num">0</span>. Rider's armor weight (helmet + body): 15–29 <span class="num">+5%</span>, 30–44 <span class="num">+10%</span>, 45+ <span class="num">+15%</span>. Run-up: <span class="num">+3%</span> per tile beyond two. Target: <span class="num">−1%</span> per 3 weight of its armor. The horse adds nothing. The roll goes to the combat log. Per-weapon values are in the sheet, column F.</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>The mass of horse and rider at speed does the pushing; the weapon decides how much of it reaches the target.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">New icons</span><span class="perk-source src-sys">New</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Was</span>The horse skills and perks used old and vanilla icons.</div>
+        <div class="now"><span class="tag">Now</span>Mount, Dismount, Charge and the Riding, Advanced Riding, Horseback Archery and Charge perks have their own icons.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Horse breakthrough removed</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Was</span>A rider hit by a free attack while leaving a Zone of Control kept moving with the horse's breakthrough chance (<span class="num">30–40%</span> and more). The same chance pushed the target back on a Charge.</div>
+        <div class="now"><span class="tag">Now</span>No breakthrough any more: after a free attack the rider stops, like a man on foot. The breakthrough line is gone from the horse tooltips. Charge push-back is set by the weapon and armor weight (above).</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>Riding away from enemies is harder. Horses differ like war dogs do: hitpoints, defense, attack and armor, not special traits.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Dismounting and traps</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Was</span>On dismount the horse appeared on a nearby tile and the rider stayed put. Roots, nets and the cultist mancatcher net stayed on the rider, undrawn; the horse was free. No dismounting next to an enemy.</div>
+        <div class="now"><span class="tag">Now</span>The horse stays on its tile, the rider steps to the chosen free tile next to it. Shaman roots, nets, webs and the cultist mancatcher net (Davkul) stay on the horse together with Break Free; the rider is free. The same on a fall. Dismounting is allowed in an enemy Zone of Control, but an enemy with a wall of spears next to the chosen tile strikes first, and a hit keeps the rider in the saddle. No free tile, or held by a kraken tentacle: no dismounting. Mounting next to an enemy is still impossible.</div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Hits go to the rider more often</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Was</span>A hit on a rider went to the horse with a chance equal to the horse’s “size” (<span class="num">50–60%</span>).</div>
+        <div class="now"><span class="tag">Now</span>A hit goes to the rider with a <span class="num">75%</span> chance and to the horse with <span class="num">25%</span>. Nothing changes it: not the horse, the weapon or perks. The rider tooltip says so.</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>Enemies fight the rider, not the horse: the horse is equipment, the man does the fighting.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 0.4.0 ═════════════ -->
+<div class="section">
+  <div class="section-title">0.4.0 — Simple Horses, an Honest Tree</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Horses without perks</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Horses rolled perks (Pathfinder, Colossus, Battle Forged, Relentless, Brawny, Dodge) in shops, on enemies and as loot; 20% of horses were also “steady” against falls.</div>
+        <div class="now"><span class="tag">Now</span>Horses have no perks anywhere, and no steadiness either. Old horses from a save lose their perks on load. A horse is gear, not a second character.</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>A simpler riding tree and a more even overall balance.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Riding — mounting only</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Riding gave mounting and the Charge skill.</div>
+        <div class="now"><span class="tag">Now</span>Riding only lets the character mount a horse. The rules of riding stay: <span class="num">+3</span> Reach, <span class="num">35%</span> rider defense, the ranged penalty, hits that may go to the horse (25% since 0.4.1). The character's own perks work in the saddle, except those that need firm ground (Shieldwall, Spearwall, Riposte, Footwork, Lunge and the like).</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Advanced Riding — defense only</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Gave <span class="num">85%</span> defense, <span class="num">+10%</span> of the horse's Initiative, <span class="num">+10</span> breakthrough and a lower fall chance by Stamina.</div>
+        <div class="now"><span class="tag">Now</span>Only <span class="num">85%</span> of the rider's own defense instead of <span class="num">35%</span>.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Charge Training removed</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>The perk gave the horse <span class="num">+40</span> Initiative and the Charge <span class="num">+10</span> breakthrough.</div>
+        <div class="now"><span class="tag">Now</span>The perk is gone. Whoever took it gets the perk point back, and it is removed from old perk trees.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Deadly Charge → Charge</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>Every rider had Charge: two-handed weapons only, <span class="num">2–3</span> tiles, a damage bonus for the run-up; Deadly Charge added <span class="num">+10%</span> damage, a <span class="num">50%</span> stun, a morale check on neighbours and <span class="num">+10</span> Initiative.</div>
+        <div class="now"><span class="tag">Now</span>Only the <b>Charge</b> perk (former Deadly Charge) gives the Charge skill, <span class="num">6</span> AP. The strike is made with the weapon in the main hand, any melee weapon, with no extra damage. <span class="num">40%</span> stun (not those immune). Fatigue: the weapon's attack plus the Fatigue of riding each tile of the run-up. A straight run-up from <span class="num">2</span> tiles to what is left of the turn on horseback. On a hit, enemies next to the rider check morale. Once per turn, not while engaged. Push-back is set by the weapon and armor weight (0.4.1). All mounted enemies have Charge.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Moving on horseback</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>A horse table of its own: road and field <span class="num">1</span> AP, forest <span class="num">4</span>, swamp <span class="num">5</span> — 1 AP worse than on foot; a horse with Pathfinder did better. No limit to tiles per turn.</div>
+        <div class="now"><span class="tag">Now</span>The same terrain as on foot, <span class="num">1</span> AP cheaper but at least 1: road and field <span class="num">1</span>, forest and rough ground <span class="num">2</span>, rocks, swamp and shallow water <span class="num">3</span>. It is worked out from the character's own cost on foot, so his Pathfinder works in the saddle. At most <span class="num">6</span> tiles on horseback per turn, the Charge run-up included. Fatigue is half that on foot.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Thrown off by the weapon</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>The chance came from the Hitpoints damage (<span class="num">1%</span> per 2% of Hitpoints) times a weapon factor, plus special-blow bonuses, minus horse steadiness and Advanced Riding.</div>
+        <div class="now"><span class="tag">Now</span>Every hit on the rider (not on the horse) rolls a chance that depends only on the weapon: from <span class="num">20%</span> for billhooks, halberds and voulges down to <span class="num">2%</span> for knives; arrows, bolts and thrown weapons <span class="num">5%</span>; no weapon and beasts <span class="num">1%</span>. The Hook skill adds <span class="num">+20%</span> to the weapon's chance. Named weapons count as their plain version.</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>Cavalry now has its proper counters — billhooks, halberds, pikes.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Riderless horse: Reach</span><span class="perk-source src-sys">New</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>A horse on the field without a rider had no Reach of its own.</div>
+        <div class="now"><span class="tag">Now</span>A riderless horse has <span class="num">3</span> Reach.</div>
+      </div>
+      
+    </div>
+  </div>
 </div>
 
 <div class="section">
@@ -168,7 +332,7 @@
       <div class="perk-top"><span class="perk-name">Rider Initiative</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.4</span></div>
       <div class="bs">
         <div class="was"><span class="tag">Before</span>When mounted, a fighter took the horse’s whole Initiative: <span class="num">150</span> plus the riding perk bonuses. His own Initiative was ignored, so a rider had no reason to train it.</div>
-        <div class="now"><span class="tag">Now</span>The rider keeps his own Initiative: base, armor weight, fatigue, his perks and effects. With Advanced Riding he also gets <span class="num">10%</span> of the horse’s Initiative.</div>
+        <div class="now"><span class="tag">Now</span>The rider keeps his own Initiative: base, armor weight, fatigue, his perks and effects. He gets no Initiative from the horse.</div>
       </div>
     </div>
   </div>
@@ -180,8 +344,8 @@
         <div class="was"><span class="tag">Before</span>The rider’s defense was the horse’s defense (plus <span class="num">+30%</span> of the fighter’s base defense with Advanced Riding). Sitting on a horse was a bad deal for a heavy knight because his defense was cut so hard.</div>
         <div class="now"><span class="tag">Now</span>Before the hit roll, the game decides who takes the attack:
           <ul>
-            <li>the horse — with a chance equal to its “size” (<span class="num">50–60%</span>); the roll is made against the horse’s defense and the horse takes the damage;</li>
-            <li>the rider — the roll is made against his own defense: <span class="num">35%</span> of it, <span class="num">85%</span> with Advanced Riding, with all bonuses included.</li>
+            <li>the horse — with a <span class="num">25%</span> chance (since 0.4.1 always, for any horse; before, the horse’s “size”, 50–60%); the roll is made against the horse’s defense and the horse takes the damage;</li>
+            <li>the rider — with a <span class="num">75%</span> chance, the roll is made against his own defense: <span class="num">35%</span> of it, <span class="num">85%</span> with Advanced Riding, with all bonuses included.</li>
           </ul></div>
       </div>
       <p class="perk-desc" style="margin-top:8px">The hit chance preview shows an honest average: the defense weighted by the chance to hit the horse.</p>
@@ -207,32 +371,7 @@
       <div class="perk-top"><span class="perk-name">Riding</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.7</span></div>
       <div class="bs">
         <div class="was"><span class="tag">Before</span>A mounted rider’s Initiative was equal to the horse’s Initiative; the rider’s own Initiative was ignored.</div>
-        <div class="now"><span class="tag">Now</span>A mounted rider’s Initiative is the rider’s own Initiative plus the bonuses of the riding perks. The perk tooltip now says this directly and also explains falling off a horse and movement costs in the saddle.</div>
-      </div>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Advanced Riding</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.4 · 0.2.2</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Before</span>
-          <ul>
-            <li><span class="num">+30%</span> of the fighter’s base defense added to the horse’s</li>
-            <li><span class="num">+20</span> Initiative</li>
-            <li><span class="num">+1</span> Reach</li>
-            <li><span class="num">+10</span> Breakthrough</li>
-            <li><span class="num">+10</span> chance to stay in the saddle</li>
-          </ul>
-        </div>
-        <div class="now"><span class="tag">Now</span>
-          <ul>
-            <li>attacks on the rider meet <span class="num">85%</span> of his own defense (<span class="num">35%</span> without the perk)</li>
-            <li><span class="num">+10%</span> of the horse’s Initiative added to the rider’s</li>
-            <li>chance to fall reduced by <span class="num">25%</span> of the rider’s current Stamina (up to <span class="num">−75%</span>): a fresh rider holds on better than a tired one</li>
-            <li><span class="num">+10</span> Breakthrough — unchanged</li>
-          </ul>
-        </div>
+        <div class="now"><span class="tag">Now</span>A mounted rider’s Initiative is the rider’s own Initiative. The perk tooltip now says this directly and also explains falling off a horse and movement costs in the saddle.</div>
       </div>
     </div>
   </div>
@@ -243,26 +382,6 @@
       <div class="bs">
         <div class="was"><span class="tag">Before</span>Without the perk <span class="num">−30</span> Ranged Skill; the perk removed the penalty completely.</div>
         <div class="now"><span class="tag">Now</span>Without the perk <span class="num">−35%</span> Ranged Skill, with the perk <span class="num">−15%</span>, and <span class="num">−10%</span> with a crossbow. You can’t shoot from the saddle with no penalty at all — unless you are a Scythian warrior :)</div>
-      </div>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Charge Training</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.8</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Before</span><span class="num">+20</span> Initiative for the rider; <span class="num">+10</span> Breakthrough for Horse Charge (mistakenly described as “chance to knock the target back”).</div>
-        <div class="now"><span class="tag">Now</span><span class="num">+40</span> Initiative for the <b>horse</b>, not the rider. With Advanced Riding the rider gets his share of it. <span class="num">+10</span> Breakthrough stays, and the description is fixed: higher Line Break Chance and faster acceleration.</div>
-      </div>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Deadly Charge</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.7</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Before</span><span class="num">+20</span> Initiative when mounted.</div>
-        <div class="now"><span class="tag">Now</span><span class="num">+10</span> Initiative for the rider when mounted. If the rider falls or dismounts, the bonus passes to the horse left on the field.</div>
       </div>
     </div>
   </div>
@@ -287,102 +406,46 @@
   </div>
 </div>
 
-<div class="section">
-  <div class="section-title">Falling off a Horse</div>
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">New Falling Mechanic</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.2.0 – 0.2.2</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Before</span>Checked only when a single hit took <span class="num">40%+</span> of Hitpoints. The chance to stay in the saddle was the rider’s <b>Resolve</b> (<span class="num">+10</span> with Advanced Riding); when the horse was hit, the horse’s Resolve. Weak hits never unseated anyone, and a rider with high Resolve almost never fell.</div>
-        <div class="now"><span class="tag">Now</span>The check is made on <b>every</b> hit on the rider, with no threshold:
-          <ul>
-            <li><span class="num">1%</span> for every <span class="num">2%</span> of Hitpoints lost to the hit;</li>
-            <li>× the attacker’s weapon;</li>
-            <li>+ special attack bonus;</li>
-            <li>− Advanced Riding;</li>
-            <li>− the horse’s steadiness. The chance never goes below zero.</li>
-          </ul>
-        </div>
-      </div>
-      <table>
-        <tr><th>Attacker’s weapon</th><th class="c">Multiplier</th></tr>
-        <tr><td>Hammers, maces, polearms, flails</td><td class="c hi">×1.2</td></tr>
-        <tr><td>Swords, daggers</td><td class="c hi">×0.7</td></tr>
-        <tr><td>Everything else, ranged and throwing</td><td class="c">×1</td></tr>
-      </table>
-      <table>
-        <tr><th>Special attack</th><th class="c">Bonus</th></tr>
-        <tr><td>Hooks: polearm Hook, Serpent Hook, Flesh Pull</td><td class="c hi">+20%</td></tr>
-        <tr><td>Knock Back, Repel, Shield Bash, orc Line Breaker, Unstoppable Charge, the Black Pyramid wolf boss strike, beast knockbacks</td><td class="c hi">+5%</td></tr>
-        <tr><td>Strike Down, Knock Out, Knock Over</td><td class="c hi">+5%</td></tr>
-      </table>
-      <p class="perk-desc">Ranged attacks unseat riders just as melee ones do. If the horse took the hit, the damage does not count — only the special attack bonus does. Hooks and knockbacks, which used to simply fail against a rider, can now pull him out of the saddle.</p>
-      <table>
-        <tr><th>Example (rider with 80 Hitpoints)</th><th class="c">Chance to fall</th></tr>
-        <tr><td>Sword takes 24 Hitpoints</td><td class="c">10%</td></tr>
-        <tr><td>Hammer takes 24 Hitpoints</td><td class="c">18%</td></tr>
-        <tr><td>Hook, no damage</td><td class="c">20%</td></tr>
-        <tr><td>Strike Down with a mace, takes 30 Hitpoints</td><td class="c">27%</td></tr>
-      </table>
-      <p class="perk-desc">A fallen rider is thrown onto an adjacent tile and stunned; the horse stays on the field. The combat log shows the chance and the roll.</p>
-    </div>
-  </div>
-  <div class="callout">
-    <div class="callout-num"><span class="big">none</span><span class="arr">now</span><span class="new">0–20</span><span class="lbl">steadiness</span></div>
-    <div class="callout-body">
-      <div class="perk-top"><span class="perk-name">Horse Steadiness</span><span class="perk-source src-sys">New</span><span class="ver">0.2.0</span></div>
-      <p class="perk-desc"><span class="num">20%</span> of horses get <span class="num">0</span> to <span class="num">20</span> points of steadiness when created, subtracted from the rider’s chance to fall. Shown in the horse’s tooltip (“Steady”) and in its panel; it is saved and travels with the horse.</p>
-    </div>
-  </div>
-</div>
 
 <div class="section">
   <div class="section-title">Mounted Movement</div>
   <div class="perk-card">
     <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
     <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Movement Cost by Terrain</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.2.3 – 0.2.5</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Before</span>Every horse had Pathfinder, so a rider always moved by its cost table. A horse without Pathfinder would have moved like a man on foot — no speed at all.</div>
-        <div class="now"><span class="tag">Now</span>On roads and open fields a horse is twice as fast as a man on foot. On rough terrain an ordinary horse is <span class="num">1 AP</span> worse than on foot. The rare Pathfinder makes it as good as on foot there and lets it climb for free.</div>
-      </div>
-      <table>
-        <tr><th>Terrain, AP per tile</th><th class="c">On foot</th><th class="c">Ordinary horse</th><th class="c">Horse with Pathfinder</th></tr>
-        <tr><td>Road, open field</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
-        <tr><td>Sand</td><td class="c">2</td><td class="c">2</td><td class="c">2</td></tr>
-        <tr><td>Rough ground, forest</td><td class="c">3</td><td class="c hi">4</td><td class="c">3</td></tr>
-        <tr><td>Rocks, swamp, shallow water</td><td class="c">4</td><td class="c hi">5</td><td class="c">4</td></tr>
-      </table>
-      <div class="why"><span class="why-label">Why</span><p>A horse gives speed in open country and bogs down in forests and on rocks — there it pays to dismount. A horse that moves through a forest like a man on foot is a rare find.</p></div>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
       <div class="perk-top"><span class="perk-name">Fatigue in the Saddle</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.3.6</span></div>
       <div class="bs">
         <div class="was"><span class="tag">Before</span>A rider paid the same Fatigue per tile as a man on foot: the horse carried him, but his legs still got tired.</div>
-        <div class="now"><span class="tag">Now</span>Moving in the saddle costs <span class="num">half</span> the Fatigue of moving on foot (rounded up, at least <span class="num">1</span> per tile). It is counted from the brother’s own on-foot cost, so changes from Reforged and Hardened are kept. A horse with Pathfinder halves its own table. On foot again — normal cost.</div>
+        <div class="now"><span class="tag">Now</span>Moving in the saddle costs <span class="num">half</span> the Fatigue of moving on foot (rounded up, at least <span class="num">1</span> per tile). It is counted from the brother’s own on-foot cost, so changes from Reforged and Hardened are kept. On foot again — normal cost.</div>
       </div>
       <table>
-        <tr><th>Terrain, Fatigue per tile</th><th class="c">On foot</th><th class="c">Ordinary horse</th><th class="c">Horse with Pathfinder</th></tr>
-        <tr><td>Road</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
-        <tr><td>Open field</td><td class="c">4</td><td class="c hi">2</td><td class="c">1</td></tr>
-        <tr><td>Sand</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
-        <tr><td>Rough ground, forest</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
-        <tr><td>Rocks</td><td class="c">8</td><td class="c hi">4</td><td class="c">2</td></tr>
-        <tr><td>Shallow water</td><td class="c">12</td><td class="c hi">6</td><td class="c">3</td></tr>
-        <tr><td>Swamp</td><td class="c">14</td><td class="c hi">7</td><td class="c">4</td></tr>
+        <tr><th>Terrain, Fatigue per tile</th><th class="c">On foot</th><th class="c">Mounted</th></tr>
+        <tr><td>Road</td><td class="c">2</td><td class="c hi">1</td></tr>
+        <tr><td>Open field</td><td class="c">4</td><td class="c hi">2</td></tr>
+        <tr><td>Sand</td><td class="c">6</td><td class="c hi">3</td></tr>
+        <tr><td>Rough ground, forest</td><td class="c">6</td><td class="c hi">3</td></tr>
+        <tr><td>Rocks</td><td class="c">8</td><td class="c hi">4</td></tr>
+        <tr><td>Shallow water</td><td class="c">12</td><td class="c hi">6</td></tr>
+        <tr><td>Swamp</td><td class="c">14</td><td class="c hi">7</td></tr>
       </table>
       <p class="perk-desc">Numbers are for the vanilla on-foot table; with mods that change it, the rider pays half of whatever his on-foot cost is.</p>
       <div class="why"><span class="why-label">Why</span><p>The horse carries the rider — he should tire less on the move, not as much as a man walking in heavy armor.</p></div>
     </div>
   </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">A dead horse stays dead</span><span class="perk-source src-rew">Fixed</span><span class="ver">0.3.7</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Before</span>A horse killed on the field — your own after a fall or dismount, or an enemy one — could still turn up in the loot after the battle.</div>
+        <div class="now"><span class="tag">Now</span>Every horse that comes onto the field, yours or the enemy’s, is entered in a battle log, and its death is marked there. After the loot is gathered the log decides: <span class="num">dead</span> — its item is not in the loot, wherever it came from; one of yours <span class="num">alive</span> and on the field — its item is sure to be in the loot.</div>
+      </div>
+      <div class="why"><span class="why-label">Why</span><p>A horse is a living fighter, not a thing: once killed, it must not come back.</p></div>
+    </div>
+  </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Horses: Stats and Perks</div>
+  <div class="section-title">Horses: Stats</div>
   <div class="callout">
     <div class="callout-num"><span class="big">150</span><span class="arr">now</span><span class="new">80–160</span><span class="lbl">hitpoints</span></div>
     <div class="callout-body">
@@ -396,7 +459,7 @@
       <table>
         <tr><th>Stat</th><th class="c">Before</th><th class="c">Now</th></tr>
         <tr><td>Hitpoints</td><td class="c old">150–180</td><td class="c hi">80–160</td></tr>
-        <tr><td>“Size” (chance the horse takes a hit)</td><td class="c old">50–60%</td><td class="c">50–60%</td></tr>
+        <tr><td>Chance the horse takes a hit</td><td class="c old">50–60%</td><td class="c hi">25% for all</td></tr>
         <tr><td>Stamina</td><td class="c old">150–180</td><td class="c">150–180</td></tr>
         <tr><td>Resolve</td><td class="c old">40–50</td><td class="c hi">35–70</td></tr>
         <tr><td>Melee Skill</td><td class="c old">60–70</td><td class="c hi">40–65</td></tr>
@@ -404,24 +467,8 @@
         <tr><td>Ranged Defense</td><td class="c old">10–15</td><td class="c hi">10–20</td></tr>
         <tr><td>Initiative</td><td class="c old">150–170</td><td class="c hi">120–160</td></tr>
         <tr><td>Fatigue Recovery</td><td class="c old">20–25</td><td class="c hi">20–35</td></tr>
-        <tr><td>Breakthrough (charge)</td><td class="c old">40–60</td><td class="c">40–60</td></tr>
       </table>
-      <p class="perk-desc">Breakthrough now depends on how well Resolve, Melee Skill and Initiative rolled: the best horse gets <span class="num">60</span>, the worst <span class="num">40</span>. The price is still derived from the rolls and perks, not the other way round.</p>
-    </div>
-  </div>
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">✧</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Horse Perks</span><span class="perk-source src-rew">Reworked</span><span class="ver">0.1.9 · 0.2.5</span></div>
-      <table>
-        <tr><th>Perk</th><th class="c">Before</th><th class="c">Now</th><th>What it does for the horse</th></tr>
-        <tr><td>Pathfinder</td><td class="c old">always</td><td class="c hi">6%</td><td>moves over rough terrain like a man on foot, climbs for free</td></tr>
-        <tr><td>Colossus</td><td class="c old">50%</td><td class="c hi">20%</td><td>+25% Hitpoints</td></tr>
-        <tr><td>Battle Forged</td><td class="c old">50%</td><td class="c hi">30%</td><td>less damage to the horse’s armor</td></tr>
-        <tr><td>Brawny</td><td class="c old">50%, shop horses only</td><td class="c hi">30%, all horses</td><td>the horse’s armor weighs on it less</td></tr>
-        <tr><td>Relentless</td><td class="c old">50%</td><td class="c hi">15%</td><td>fatigue lowers the horse’s Initiative less</td></tr>
-        <tr><td>Dodge</td><td class="c old">50%, enemy horses only</td><td class="c hi">10%, all horses</td><td>works for a horse without a rider</td></tr>
-      </table>
+      <p class="perk-desc">A horse’s price is derived from its rolls. Horses have no breakthrough any more (0.4.1) and no perks (0.4.0).</p>
     </div>
   </div>
 </div>
@@ -449,7 +496,7 @@
 
 <div class="footer">
   All numbers live in the mod settings and are easy to tune.
-  <span class="sig">Warhorse RF · 0.3.6</span>
+  <span class="sig">Warhorse RF · 0.4.1</span>
 </div>
 
 </div>

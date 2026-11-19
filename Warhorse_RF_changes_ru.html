@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warhorse RF — изменения 0.1.3–0.3.6</title>
+<title>Warhorse RF — изменения 0.1.3–0.3.7</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -145,12 +145,13 @@
 <div class="header">
   <div class="header-ornament">Black Pyramid&nbsp;·&nbsp;Reforged</div>
   <h1>Warhorse RF</h1>
-  <p class="subtitle">Боевые кони: список изменений, версии 0.1.3 – 0.3.6</p>
+  <p class="subtitle">Боевые кони: список изменений, версии 0.1.3 – 0.4.1</p>
   <div class="header-line"><span><a href="https://www.nexusmods.com/battlebrothers/mods/507" target="_blank">Оригинальный мод</a>&nbsp;·&nbsp;автор: krigun</span></div>
 </div>
 
 <div class="legend">
-  <p>Теперь конь — это выбор отыгрыша бойца, а не дармовой бонус. В поле всадник быстрый, а с хорошим конём ещё и устойчивый. Зато в лесу и на камнях он медленнее пешего. Всадника теперь может сбросить с коня удар совны или крюка, а лучник в седле стреляет немного хуже. Появилась причина спешиваться, а перк <b>Pathfinder</b> у коня стал по-настоящему важным и больше не выдаётся каждому коню подряд.</p>
+  <p>С версии 0.4.0 конь стал проще: у коней нет перков, ветка Riding даёт посадку, защиту, стрельбу с коня и «Таран», а сбить всадника можно оружием — совня, алебарда и пика опаснее всего. В поле всадник быстрее пешего, но не больше 6 клеток за ход.</p>
+  <p>Конь — выбор отыгрыша бойца, а не дармовой бонус. Кони различаются здоровьем, защитой, ударом и бронёй, как боевые псы. Верхом всадник быстрее пешего на любой местности, но удар чаще достаётся ему (<b>75%</b>), а не коню. Сбить с коня может совня, алебарда или крюк, щит в седле бесполезен, лучник стреляет хуже. Причин спешиться хватает.</p>
   <p>Все изменения — ниже.</p>
 </div>
 
@@ -158,6 +159,169 @@
   <div class="key"><span class="key-dot kd-rew"></span>Переделано</div>
   <div class="key"><span class="key-dot kd-sys"></span>Новое</div>
   <div class="key"><span class="key-dot kd-ref"></span>Исправлено</div>
+</div>
+
+<!-- ═════════════ 0.4.1 ═════════════ -->
+<div class="section">
+  <div class="section-title">0.4.1 — щит в седле, отталкивание «Тараном»</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Щит верхом бесполезен</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Верхом нельзя было только Стену щитов и Отбросить; щит давал полную защиту.</div>
+        <div class="now"><span class="tag">Стало</span>Верхом щит не даёт ни ближней, ни дальней защиты, а все его умения недоступны (Стена щитов, Отбросить, «Прикрыть» из Reforged и любые другие умения щита). Перки щита (Phalanx, Rebuke и подобные) считают, что щита нет. Вес щита остаётся. Сказано в описании Riding, в подсказке щита и его умений.</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Щит на скаку не держат как в строю.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Отталкивание «Тараном»</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Шанс отбросить цель был параметром коня (<span class="num">30–40%</span> плюс рост от характеристик).</div>
+        <div class="now"><span class="tag">Стало</span>Шанс = оружие + вес брони всадника + разгон − вес брони цели, от <span class="num">0</span> до <span class="num">90%</span>. Оружие: двуручные копья и пики <span class="num">35%</span>, двуручные молоты и булавы <span class="num">30%</span>, древковое и одноручные копья <span class="num">25%</span>, булавы, цепы, двуручные топоры <span class="num">20%</span>, двуручные мечи и посохи <span class="num">15%</span>, топоры и тесаки <span class="num">12%</span>, мечи <span class="num">10%</span>, кинжалы <span class="num">3%</span>, кнуты <span class="num">0</span>. Вес брони всадника (шлем + броня): 15–29 <span class="num">+5%</span>, 30–44 <span class="num">+10%</span>, 45 и больше <span class="num">+15%</span>. Разгон: <span class="num">+3%</span> за каждую клетку сверх двух. Цель: <span class="num">−1%</span> за каждые 3 веса её брони. Конь в шанс не входит. Бросок пишется в журнал боя. Значения по каждому оружию — в таблице, колонка F.</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Отбрасывает масса коня со всадником на скорости, а оружие решает, сколько её дойдёт до цели.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Новые иконки</span><span class="perk-source src-sys">Новое</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Навыки и перки коня использовали старые и ванильные иконки.</div>
+        <div class="now"><span class="tag">Стало</span>Свои иконки у «Сесть на коня», «Сойти с коня», «Тарана» и у перков Riding, Advanced Riding, Horseback Archery и Charge.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Прорыв коня убран</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Если всадника били свободной атакой при выходе из зоны контроля, он с шансом прорыва коня (<span class="num">30–40%</span> и выше) ехал дальше. Этот же шанс отбрасывал цель «Тараном».</div>
+        <div class="now"><span class="tag">Стало</span>Прорыва больше нет: после свободной атаки всадник останавливается, как пеший. Строка «прорыв» убрана из подсказок коня. Отталкивание «Тараном» считается по оружию и весу брони (выше).</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Уйти от врага верхом стало труднее. Кони различаются как боевые псы: здоровьем, защитой, ударом и бронёй, а не особыми свойствами.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Спешивание и путы</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>При спешивании конь появлялся на соседней клетке, а всадник оставался на месте. Корни, сети и сеть ловца культистов оставались на всаднике, но не рисовались; конь был свободен. Спешиться рядом с врагом было нельзя.</div>
+        <div class="now"><span class="tag">Стало</span>Конь остаётся на своей клетке, всадник переходит на выбранную свободную соседнюю. Корни шамана, сети, паутина и сеть ловца культистов (Davkul) остаются на коне вместе с «Вырваться»; всадник свободен. То же при падении с коня. Спешиваться можно и в зоне контроля врага, но враг с копейной стеной рядом с выбранной клеткой бьёт первым — попал, и всадник остаётся в седле. Нет свободной клетки или держит щупальце кракена — спешиться нельзя. Сесть на коня рядом с врагом по-прежнему нельзя.</div>
+      </div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Удар — чаще во всадника</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.1</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Удар по всаднику доставался коню с шансом, равным «размеру» коня (<span class="num">50–60%</span>).</div>
+        <div class="now"><span class="tag">Стало</span>Удар идёт во всадника с шансом <span class="num">75%</span>, в коня — <span class="num">25%</span>. Ни от чего не зависит: ни от коня, ни от оружия, ни от перков. В подсказке всадника так и написано.</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Бьют всадника, а не коня: конь — снаряжение, а сражается человек.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ 0.4.0 ═════════════ -->
+<div class="section">
+  <div class="section-title">0.4.0 — простые кони, честная ветка</div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Кони без перков</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Кони роллили перки (Pathfinder, Colossus, Battle Forged, Relentless, Brawny, Dodge) — в магазинах, у врагов и в трофеях; у 20% коней была ещё «устойчивость» против падения.</div>
+        <div class="now"><span class="tag">Стало</span>Перков у коней больше нет нигде, устойчивости тоже. У старых коней из сейва перки снимаются при загрузке. Конь — снаряжение, а не второй персонаж.</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Ветка коня проще, баланс общей игры ровнее.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Riding — только посадка</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Riding давал посадку и навык «Таран».</div>
+        <div class="now"><span class="tag">Стало</span>Riding только позволяет сесть на коня. Правила езды остаются: досягаемость <span class="num">+3</span>, защита всадника <span class="num">35%</span>, штраф стрельбы, удар может прийтись в коня (с 0.4.1 — 25%). Перки самого бойца работают в седле, кроме тех, что требуют твёрдой земли (Shieldwall, Spearwall, Riposte, Footwork, Lunge и подобные).</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Advanced Riding — только защита</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Давал <span class="num">85%</span> защиты, <span class="num">+10%</span> инициативы коня, <span class="num">+10</span> к прорыву и снижал шанс падения по выносливости.</div>
+        <div class="now"><span class="tag">Стало</span>Только <span class="num">85%</span> собственной защиты всадника вместо <span class="num">35%</span>.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Charge Training удалён</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Перк давал коню <span class="num">+40</span> инициативы и <span class="num">+10</span> к прорыву тарана.</div>
+        <div class="now"><span class="tag">Стало</span>Перка больше нет. Кто его взял, получает очко перка назад, из старых деревьев он убирается.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Deadly Charge → Charge</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>«Таран» был у каждого всадника: только с двуручным оружием, <span class="num">2–3</span> клетки, бонус урона за разгон; Deadly Charge добавлял <span class="num">+10%</span> урона, <span class="num">50%</span> оглушения, проверку морали соседей и <span class="num">+10</span> инициативы.</div>
+        <div class="now"><span class="tag">Стало</span>Навык «Таран» даёт только перк <b>Charge</b> (бывший Deadly Charge), <span class="num">6</span> ОД. Удар — оружием из правой руки, любым оружием ближнего боя, без бонусного урона. Оглушение <span class="num">40%</span> (иммунных — нет). Усталость: удар оружия плюс усталость за каждую клетку разгона. Разгон по прямой от <span class="num">2</span> клеток до остатка хода верхом за этот ход. При попадании враги рядом со всадником проверяют мораль. Раз за ход, не под зоной контроля врага. Отталкивание цели — по оружию и весу брони (0.4.1). Charge есть у всех конных врагов.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Передвижение верхом</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Своя таблица коня: дорога и поле <span class="num">1</span> ОД, лес <span class="num">4</span>, болото <span class="num">5</span> — на 1 ОД хуже пешего; Pathfinder коня улучшал её. Сколько клеток за ход — без предела.</div>
+        <div class="now"><span class="tag">Стало</span>Та же местность, что пешком, на <span class="num">1</span> ОД дешевле, но не меньше 1: дорога и поле <span class="num">1</span>, лес и неровная земля <span class="num">2</span>, камни, болото и мелководье <span class="num">3</span>. Считается от пешей стоимости бойца — его Pathfinder работает в седле. Не больше <span class="num">6</span> клеток верхом за ход, вместе с разгоном «Тарана». Усталость — вдвое меньше пешей.</div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Сбитие с коня — по оружию</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Шанс считался от урона по здоровью (<span class="num">1%</span> за каждые 2% здоровья) с множителем оружия, плюс бонусы особых ударов, минус устойчивость коня и Advanced Riding.</div>
+        <div class="now"><span class="tag">Стало</span>Каждое попадание во всадника (не в коня) проверяет шанс, который зависит только от оружия: от <span class="num">20%</span> у совни, алебарды и вужа до <span class="num">2%</span> у ножа; стрелы, болты и метательное — <span class="num">5%</span>; без оружия и звери — <span class="num">1%</span>. Умение «Крюк» — <span class="num">+20%</span> к шансу оружия. Именное оружие — как обычное.</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Против конницы работает своё оружие — совни, алебарды, пики.</p></div>
+    </div>
+  </div>
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Конь без всадника: досягаемость</span><span class="perk-source src-sys">Новое</span><span class="ver">0.4.0</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>У коня на поле без всадника своей досягаемости не было.</div>
+        <div class="now"><span class="tag">Стало</span>Конь без всадника — досягаемость <span class="num">3</span>.</div>
+      </div>
+      
+    </div>
+  </div>
 </div>
 
 <!-- ═════════════ ВСАДНИК ═════════════ -->
@@ -170,7 +334,7 @@
       <div class="perk-top"><span class="perk-name">Инициатива всадника</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.1.4</span></div>
       <div class="bs">
         <div class="was"><span class="tag">Было</span>Верхом боец получал инициативу коня целиком: <span class="num">150</span> плюс бонусы конных перков. Собственная инициатива бойца не учитывалась вообще, так что качать её всаднику было незачем.</div>
-        <div class="now"><span class="tag">Стало</span>У всадника его собственная инициатива: база, вес брони, усталость, его перки и эффекты. С перком Advanced Riding к ней добавляется <span class="num">10%</span> инициативы коня.</div>
+        <div class="now"><span class="tag">Стало</span>У всадника его собственная инициатива: база, вес брони, усталость, его перки и эффекты. От коня он инициативы не получает.</div>
       </div>
     </div>
   </div>
@@ -183,8 +347,8 @@
         <div class="was"><span class="tag">Было</span>Защита всадника = защита коня (с Advanced Riding ещё <span class="num">+30%</span> базовой защиты бойца). Тяжёлому рыцарю сидеть на коне было невыгодно из-за сильной порезки его защиты.</div>
         <div class="now"><span class="tag">Стало</span>Ещё до броска на попадание решается, кому достанется удар:
           <ul>
-            <li>коню — с шансом, равным его «размеру» (<span class="num">50–60%</span>); бросок идёт против защиты коня, урон получает конь;</li>
-            <li>всаднику — бросок против его защиты: <span class="num">35%</span> собственной, с Advanced Riding <span class="num">85%</span>, со всеми бонусами.</li>
+            <li>коню — с шансом <span class="num">25%</span> (с 0.4.1 всегда, у любого коня; раньше — «размер» коня, 50–60%); бросок идёт против защиты коня, урон получает конь;</li>
+            <li>всаднику — с шансом <span class="num">75%</span>, бросок против его защиты: <span class="num">35%</span> собственной, с Advanced Riding <span class="num">85%</span>, со всеми бонусами.</li>
           </ul>
         </div>
       </div>
@@ -214,36 +378,11 @@
       <div class="perk-top"><span class="perk-name">Riding</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.1.7</span></div>
       <div class="bs">
         <div class="was"><span class="tag">Было</span>Инициатива всадника на коне была равна инициативе коня, а личная инициатива седока не учитывалась.</div>
-        <div class="now"><span class="tag">Стало</span>Инициатива всадника на коне — это личная инициатива седока плюс бонусы перков конной ветки. Это прямо сказано в подсказке перка, туда же добавлены правила падения с коня и стоимость хода верхом.</div>
+        <div class="now"><span class="tag">Стало</span>Инициатива всадника на коне — это личная инициатива седока. Это прямо сказано в подсказке перка, туда же добавлены правила падения с коня и стоимость хода верхом.</div>
       </div>
     </div>
   </div>
 
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Advanced Riding</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.1.4 · 0.2.2</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Было</span>
-          <ul>
-            <li><span class="num">+30%</span> базовой защиты бойца к защите коня</li>
-            <li><span class="num">+20</span> инициативы</li>
-            <li><span class="num">+1</span> досягаемости (Reach)</li>
-            <li><span class="num">+10</span> к прорыву</li>
-            <li><span class="num">+10</span> к шансу удержаться в седле</li>
-          </ul>
-        </div>
-        <div class="now"><span class="tag">Стало</span>
-          <ul>
-            <li>при ударе по всаднику — <span class="num">85%</span> его собственной защиты (без перка <span class="num">35%</span>)</li>
-            <li><span class="num">+10%</span> инициативы коня к инициативе всадника</li>
-            <li>шанс падения снижается на <span class="num">25%</span> от текущей выносливости всадника (до <span class="num">−75%</span>): свежий держится лучше, уставший хуже</li>
-            <li><span class="num">+10</span> к прорыву — без изменений</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="perk-card">
     <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
@@ -256,27 +395,7 @@
     </div>
   </div>
 
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Charge Training</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.1.8</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Было</span><span class="num">+20</span> инициативы всаднику; <span class="num">+10</span> к прорыву в рывке (в описании ошибочно — «шанс отбросить цель»).</div>
-        <div class="now"><span class="tag">Стало</span><span class="num">+40</span> инициативы <b>коню</b>, не всаднику. С Advanced Riding всадник получает свою долю от неё. <span class="num">+10</span> к прорыву остался, описание исправлено: выше шанс проломить строй и быстрее разгон.</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Deadly Charge</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.1.7</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Было</span><span class="num">+20</span> инициативы верхом.</div>
-        <div class="now"><span class="tag">Стало</span><span class="num">+10</span> инициативы всаднику верхом. Если всадник упал или спешился, бонус переходит коню, оставшемуся на поле.</div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- ═════════════ СТРЕЛЬБА ═════════════ -->
@@ -300,81 +419,11 @@
   </div>
 </div>
 
-<!-- ═════════════ ПАДЕНИЕ ═════════════ -->
-<div class="section">
-  <div class="section-title">Падение с коня</div>
-
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Новая механика падения</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.2.0 – 0.2.2</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Было</span>Проверка только при ударе на <span class="num">40%+</span> здоровья за раз. Шанс удержаться = <b>решимость</b> всадника (<span class="num">+10</span> с Advanced Riding). При ударе по коню — решимость коня. Слабые удары не сбивали никогда, а при высокой решимости всадник почти не падал.</div>
-        <div class="now"><span class="tag">Стало</span>Шанс проверяется на <b>каждое</b> попадание по всаднику, без порога:
-          <ul>
-            <li><span class="num">1%</span> за каждые <span class="num">2%</span> здоровья, снятые ударом;</li>
-            <li>× оружие атакующего;</li>
-            <li>+ бонус особого удара;</li>
-            <li>− Advanced Riding;</li>
-            <li>− устойчивость коня. Ниже нуля шанс не опускается.</li>
-          </ul>
-        </div>
-      </div>
-      <table>
-        <tr><th>Оружие атакующего</th><th class="c">Множитель</th></tr>
-        <tr><td>Молоты, булавы, древковое, цепы</td><td class="c hi">×1,2</td></tr>
-        <tr><td>Мечи, кинжалы</td><td class="c hi">×0,7</td></tr>
-        <tr><td>Остальное, дальнее и метательное</td><td class="c">×1</td></tr>
-      </table>
-      <table>
-        <tr><th>Особый удар</th><th class="c">Прибавка</th></tr>
-        <tr><td>Крюки: Hook древкового оружия, змеиный крюк, Flesh Pull</td><td class="c hi">+20%</td></tr>
-        <tr><td>Knock Back, Repel, удар щитом, Line Breaker орков, таранный рывок, удар волка-босса Пирамиды, отбрасывания зверей</td><td class="c hi">+5%</td></tr>
-        <tr><td>Strike Down, Knock Out, Knock Over</td><td class="c hi">+5%</td></tr>
-      </table>
-      <p class="perk-desc">Дальние атаки сбивают так же, как ближние. Если удар принял конь, урон в формулу не идёт, остаётся только бонус особого удара. Крюки и толчки, которые раньше на всаднике просто не срабатывали, теперь могут стащить его с коня.</p>
-      <table>
-        <tr><th>Пример (у всадника 80 здоровья)</th><th class="c">Шанс упасть</th></tr>
-        <tr><td>Меч снял 24 здоровья</td><td class="c">10%</td></tr>
-        <tr><td>Молот снял 24 здоровья</td><td class="c">18%</td></tr>
-        <tr><td>Крюк, без урона</td><td class="c">20%</td></tr>
-        <tr><td>Strike Down булавой, снял 30 здоровья</td><td class="c">27%</td></tr>
-      </table>
-      <p class="perk-desc">Упавшего всадника отбрасывает на соседнюю клетку и оглушает, конь остаётся на поле. В журнале боя виден шанс и бросок.</p>
-    </div>
-  </div>
-
-  <div class="callout">
-    <div class="callout-num"><span class="big">нет</span><span class="arr">стало</span><span class="new">0–20</span><span class="lbl">устойчивость</span></div>
-    <div class="callout-body">
-      <div class="perk-top"><span class="perk-name">Устойчивость коня</span><span class="perk-source src-sys">Новое</span><span class="ver">0.2.0</span></div>
-      <p class="perk-desc"><span class="num">20%</span> коней при создании получают устойчивость от <span class="num">0</span> до <span class="num">20</span> пунктов, которые вычитаются из шанса падения. Видна в подсказке коня («Steady») и в его панели, сохраняется и переходит вместе с конём.</p>
-    </div>
-  </div>
-</div>
 
 <!-- ═════════════ ХОД ═════════════ -->
 <div class="section">
   <div class="section-title">Передвижение верхом</div>
 
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Стоимость хода по местности</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.2.3 – 0.2.5</span></div>
-      <div class="bs">
-        <div class="was"><span class="tag">Было</span>Pathfinder был у каждого коня, поэтому всадник везде ходил по его таблице. Конь без Pathfinder ходил бы как пеший — без всякой скорости.</div>
-        <div class="now"><span class="tag">Стало</span>По дороге и полю конь вдвое быстрее пешего. Обычный конь на пересечённой местности на <span class="num">1 ОД</span> хуже пешего. Редкий Pathfinder делает его там таким же, как пеший, и даёт бесплатный подъём.</div>
-      </div>
-      <table>
-        <tr><th>Местность, ОД за клетку</th><th class="c">Пешком</th><th class="c">Обычный конь</th><th class="c">Конь с Pathfinder</th></tr>
-        <tr><td>Дорога, ровное поле</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
-        <tr><td>Песок</td><td class="c">2</td><td class="c">2</td><td class="c">2</td></tr>
-        <tr><td>Неровная земля, лес</td><td class="c">3</td><td class="c hi">4</td><td class="c">3</td></tr>
-        <tr><td>Камни, болото, мелководье</td><td class="c">4</td><td class="c hi">5</td><td class="c">4</td></tr>
-      </table>
-      <div class="why"><span class="why-label">Зачем</span><p>Конь даёт скорость на открытой местности и вязнет в лесу и на камнях — там выгоднее спешиться. Конь, который и в лесу идёт как пеший, — редкая находка.</p></div>
-    </div>
-  </div>
 
   <div class="perk-card">
     <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
@@ -382,27 +431,39 @@
       <div class="perk-top"><span class="perk-name">Усталость в седле</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.3.6</span></div>
       <div class="bs">
         <div class="was"><span class="tag">Было</span>Всадник за каждую клетку уставал так же, как пеший: конь его нёс, но ноги всё равно уставали.</div>
-        <div class="now"><span class="tag">Стало</span>Ход в седле отнимает <span class="num">вдвое меньше</span> усталости, чем пешком (с округлением вверх, не меньше <span class="num">1</span> за клетку). Считается от пешей стоимости самого бойца, поэтому правки Reforged и Hardened сохраняются. У коня с Pathfinder — половина его собственной таблицы. Спешился — обычная стоимость.</div>
+        <div class="now"><span class="tag">Стало</span>Ход в седле отнимает <span class="num">вдвое меньше</span> усталости, чем пешком (с округлением вверх, не меньше <span class="num">1</span> за клетку). Считается от пешей стоимости самого бойца, поэтому правки Reforged и Hardened сохраняются. Спешился — обычная стоимость.</div>
       </div>
       <table>
-        <tr><th>Местность, усталость за клетку</th><th class="c">Пешком</th><th class="c">Обычный конь</th><th class="c">Конь с Pathfinder</th></tr>
-        <tr><td>Дорога</td><td class="c">2</td><td class="c hi">1</td><td class="c">1</td></tr>
-        <tr><td>Ровное поле</td><td class="c">4</td><td class="c hi">2</td><td class="c">1</td></tr>
-        <tr><td>Песок</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
-        <tr><td>Неровная земля, лес</td><td class="c">6</td><td class="c hi">3</td><td class="c">2</td></tr>
-        <tr><td>Камни</td><td class="c">8</td><td class="c hi">4</td><td class="c">2</td></tr>
-        <tr><td>Мелководье</td><td class="c">12</td><td class="c hi">6</td><td class="c">3</td></tr>
-        <tr><td>Болото</td><td class="c">14</td><td class="c hi">7</td><td class="c">4</td></tr>
+        <tr><th>Местность, усталость за клетку</th><th class="c">Пешком</th><th class="c">Верхом</th></tr>
+        <tr><td>Дорога</td><td class="c">2</td><td class="c hi">1</td></tr>
+        <tr><td>Ровное поле</td><td class="c">4</td><td class="c hi">2</td></tr>
+        <tr><td>Песок</td><td class="c">6</td><td class="c hi">3</td></tr>
+        <tr><td>Неровная земля, лес</td><td class="c">6</td><td class="c hi">3</td></tr>
+        <tr><td>Камни</td><td class="c">8</td><td class="c hi">4</td></tr>
+        <tr><td>Мелководье</td><td class="c">12</td><td class="c hi">6</td></tr>
+        <tr><td>Болото</td><td class="c">14</td><td class="c hi">7</td></tr>
       </table>
       <p class="perk-desc">Числа даны для ванильной пешей таблицы; если другие моды её меняют, всадник платит половину своей пешей стоимости.</p>
       <div class="why"><span class="why-label">Зачем</span><p>Всадника несёт конь — он должен уставать на ходу меньше, а не как пеший в тяжёлом доспехе.</p></div>
+    </div>
+  </div>
+
+  <div class="perk-card">
+    <div class="perk-icon-col"><div class="perk-icon">♘</div></div>
+    <div class="perk-body">
+      <div class="perk-top"><span class="perk-name">Погибший конь остаётся погибшим</span><span class="perk-source src-rew">Исправлено</span><span class="ver">0.3.7</span></div>
+      <div class="bs">
+        <div class="was"><span class="tag">Было</span>Коня, которого убили на поле, — своего, сброшенного или спешенного, и вражеского — иногда всё равно находили в добыче после боя.</div>
+        <div class="now"><span class="tag">Стало</span>Каждый конь, вышедший на поле, — свой и вражеский — записывается в журнал боя, и его смерть отмечается там же. После сбора добычи журнал решает окончательно: <span class="num">погиб</span> — его предмета в добыче нет, откуда бы он ни взялся; свой конь <span class="num">жив</span> и стоит на поле — предмет точно попадёт в добычу.</div>
+      </div>
+      <div class="why"><span class="why-label">Зачем</span><p>Конь — живой боец, а не вещь: если его убили, он не должен возвращаться.</p></div>
     </div>
   </div>
 </div>
 
 <!-- ═════════════ КОНИ ═════════════ -->
 <div class="section">
-  <div class="section-title">Кони: параметры и перки</div>
+  <div class="section-title">Кони: параметры</div>
 
   <div class="callout">
     <div class="callout-num"><span class="big">150</span><span class="arr">стало</span><span class="new">80–160</span><span class="lbl">здоровье</span></div>
@@ -418,7 +479,7 @@
       <table>
         <tr><th>Параметр</th><th class="c">Было</th><th class="c">Стало</th></tr>
         <tr><td>Здоровье</td><td class="c old">150–180</td><td class="c hi">80–160</td></tr>
-        <tr><td>«Размер» (шанс, что удар примет конь)</td><td class="c old">50–60%</td><td class="c">50–60%</td></tr>
+        <tr><td>Шанс, что удар примет конь</td><td class="c old">50–60%</td><td class="c hi">25% у всех</td></tr>
         <tr><td>Выносливость</td><td class="c old">150–180</td><td class="c">150–180</td></tr>
         <tr><td>Решимость</td><td class="c old">40–50</td><td class="c hi">35–70</td></tr>
         <tr><td>Навык ближнего боя</td><td class="c old">60–70</td><td class="c hi">40–65</td></tr>
@@ -426,27 +487,11 @@
         <tr><td>Защита от дальних атак</td><td class="c old">10–15</td><td class="c hi">10–20</td></tr>
         <tr><td>Инициатива</td><td class="c old">150–170</td><td class="c hi">120–160</td></tr>
         <tr><td>Восстановление усталости</td><td class="c old">20–25</td><td class="c hi">20–35</td></tr>
-        <tr><td>Прорыв (рывок)</td><td class="c old">40–60</td><td class="c">40–60</td></tr>
       </table>
-      <p class="perk-desc">Прорыв теперь зависит от того, насколько удачно выпали решимость, навык и инициатива: лучший конь получает <span class="num">60</span>, худший <span class="num">40</span>. Цена по-прежнему считается из роллов и перков, а не наоборот.</p>
+      <p class="perk-desc">Цена коня считается из его роллов. Прорыва у коней больше нет (0.4.1), перков тоже (0.4.0).</p>
     </div>
   </div>
 
-  <div class="perk-card">
-    <div class="perk-icon-col"><div class="perk-icon">✧</div></div>
-    <div class="perk-body">
-      <div class="perk-top"><span class="perk-name">Перки коней</span><span class="perk-source src-rew">Переделано</span><span class="ver">0.1.9 · 0.2.5</span></div>
-      <table>
-        <tr><th>Перк</th><th class="c">Было</th><th class="c">Стало</th><th>Что даёт коню</th></tr>
-        <tr><td>Pathfinder</td><td class="c old">всегда</td><td class="c hi">6%</td><td>на пересечённой местности ходит как пеший, бесплатный подъём</td></tr>
-        <tr><td>Colossus</td><td class="c old">50%</td><td class="c hi">20%</td><td>+25% здоровья</td></tr>
-        <tr><td>Battle Forged</td><td class="c old">50%</td><td class="c hi">30%</td><td>меньше урона по броне коня</td></tr>
-        <tr><td>Brawny</td><td class="c old">50%, только из магазина</td><td class="c hi">30%, все кони</td><td>броня коня нагружает его меньше</td></tr>
-        <tr><td>Relentless</td><td class="c old">50%</td><td class="c hi">15%</td><td>усталость слабее снижает инициативу коня</td></tr>
-        <tr><td>Dodge</td><td class="c old">50%, только у врагов</td><td class="c hi">10%, все кони</td><td>работает у коня без всадника</td></tr>
-      </table>
-    </div>
-  </div>
 </div>
 
 <!-- ═════════════ ПРОЧЕЕ ═════════════ -->
@@ -475,7 +520,7 @@
 
 <div class="footer">
   Все числа вынесены в настройки мода и легко подстраиваются.
-  <span class="sig">Warhorse RF · 0.3.6</span>
+  <span class="sig">Warhorse RF · 0.4.1</span>
 </div>
 
 </div>
